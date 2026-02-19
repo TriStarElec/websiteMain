@@ -1,0 +1,97 @@
+:root {
+  --bg: #fff;
+  --fg: #000;
+  --muted: rgba(0,0,0,.72);
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  overflow: hidden; /* snap container will scroll instead */
+}
+
+.snap {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.section--black { background: #000; color: #fff; }
+.section--white { background: #fff; color: #000; }
+
+.center {
+  width: min(980px, calc(100% - 3rem));
+  text-align: center;
+}
+
+.h1 {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 0.8rem;
+}
+
+.h2 {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  color: var(--muted);
+  margin: 0;
+}
+
+.ctaRow {
+  display: inline-flex;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.linkBtn {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 650;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: .95rem;
+  padding: .9rem 1.2rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+}
+
+.bgImg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.95) contrast(1.05);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+}
+
+.overlayText {
+  position: relative;
+  z-index: 2;
+  width: min(980px, calc(100% - 3rem));
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 20px rgba(0,0,0,.6);
+}
+
+.overlayText .h1 { margin-bottom: .5rem; }
+.overlayText .h2 { color: rgba(255,255,255,.82); }

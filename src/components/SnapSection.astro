@@ -1,0 +1,22 @@
+---
+const {
+  variant = "white",     // "white" | "black" | "image"
+  image = "",            // "/images/..."
+  scrim = true,
+  id = undefined,
+} = Astro.props;
+
+const cls =
+  variant === "black" ? "section section--black"
+  : variant === "image" ? "section"
+  : "section section--white";
+---
+<section id={id} class={cls} data-snap-section>
+  {variant === "image" && image && (
+    <>
+      <div class="bgImg" style={`background-image:url(${image});`}></div>
+      {scrim && <div class="scrim"></div>}
+    </>
+  )}
+  <slot />
+</section>

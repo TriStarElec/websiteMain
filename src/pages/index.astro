@@ -1,26 +1,117 @@
-// ==============================
-// src/pages/index.astro
-// ==============================
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
-import Proof from '../components/Proof.astro';
-import Process from '../components/Process.astro';
-import PricingTease from '../components/PricingTease.astro';
-import FAQ from '../components/FAQ.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SnapSection from "../components/SnapSection.astro";
+
+// Replace with your real Jotform intake URL:
+const INTAKE_URL = "https://form.jotform.com/260426008422043";
 ---
 <BaseLayout title="Tri Star Electrical — Auckland">
-  <Nav />
-  <main id="content">
-    <Hero />
-    <Services />
-    <Process />
-    <Proof />
-    <PricingTease />
-    <FAQ />
+  <main class="snap" id="snapRoot">
+    <!-- Gate -->
+    <SnapSection variant="black" id="gate">
+      <div class="center">
+        <div class="ctaRow">
+          <a class="linkBtn" href={INTAKE_URL}>Contact Now</a>
+          <a class="linkBtn" href="#bad-1">Enter Page</a>
+        </div>
+      </div>
+    </SnapSection>
+
+    <!-- Problem sequence -->
+    <SnapSection variant="image" image="/images/bad-1.jpg" id="bad-1">
+      <div class="overlayText">
+        <h1 class="h1">This isn’t rare.</h1>
+        <p class="h2">Unsafe work. Shortcuts. Hidden risk.</p>
+      </div>
+    </SnapSection>
+
+    <SnapSection variant="image" image="/images/bad-2.jpg" id="bad-2">
+      <div class="overlayText">
+        <h1 class="h1">This is common.</h1>
+        <p class="h2">Messy installs. No pride. No standards.</p>
+      </div>
+    </SnapSection>
+
+    <SnapSection variant="image" image="/images/bad-3.jpg" id="bad-3">
+      <div class="overlayText">
+        <h1 class="h1">And this is unacceptable.</h1>
+        <p class="h2">Confusing bills. Surprises. Regret.</p>
+      </div>
+    </SnapSection>
+
+    <!-- Reset text (full-screen white, centered, snapped) -->
+    <SnapSection variant="white" id="enough">
+      <div class="center">
+        <h1 class="h1">Auckland, we’ve had enough.</h1>
+        <p class="h2">You deserve better.</p>
+      </div>
+    </SnapSection>
+
+    <!-- Good sequence -->
+    <SnapSection variant="image" image="/images/good-1.jpg" id="good-1">
+      <div class="overlayText">
+        <h1 class="h1">This is Tri Star Electrical.</h1>
+        <p class="h2">Clean installs. Clear communication.</p>
+      </div>
+    </SnapSection>
+
+    <SnapSection variant="image" image="/images/good-2.jpg" id="good-2">
+      <div class="overlayText">
+        <h1 class="h1">Electrical done well.</h1>
+        <p class="h2">Engineered properly. Built to last.</p>
+      </div>
+    </SnapSection>
+
+    <SnapSection variant="image" image="/images/good-3.jpg" id="good-3">
+      <div class="overlayText">
+        <h1 class="h1">Precision. Pride. Professionalism.</h1>
+        <p class="h2">The standard you should expect.</p>
+      </div>
+    </SnapSection>
+
+    <!-- Final CTA -->
+    <SnapSection variant="black" id="contact">
+      <div class="center">
+        <h1 class="h1">Ready to work with professionals?</h1>
+        <p class="h2" style="color:rgba(255,255,255,.78)">Fast intake. Clear scope. No surprises.</p>
+        <div class="ctaRow">
+          <a class="linkBtn" href={INTAKE_URL}>Contact Now</a>
+          <a class="linkBtn" href="#gate">Back to Top</a>
+        </div>
+      </div>
+    </SnapSection>
   </main>
-  <Footer />
+
+  <!-- Optional: tighter snap on mousewheel so one wheel = one section -->
+  <script>
+    (() => {
+      const root = document.getElementById("snapRoot");
+      if (!root) return;
+
+      let lock = false;
+      root.addEventListener("wheel", (e) => {
+        if (lock) return;
+        const dy = e.deltaY;
+        if (Math.abs(dy) < 12) return;
+
+        const sections = Array.from(root.querySelectorAll("[data-snap-section]"));
+        const y = root.scrollTop + root.clientHeight / 2;
+
+        let idx = 0;
+        for (let i = 0; i < sections.length; i++) {
+          const top = sections[i].offsetTop;
+          const bottom = top + sections[i].offsetHeight;
+          if (y >= top && y < bottom) { idx = i; break; }
+        }
+
+        const next = dy > 0 ? Math.min(idx + 1, sections.length - 1) : Math.max(idx - 1, 0);
+        if (next === idx) return;
+
+        e.preventDefault();
+        lock = true;
+        root.scrollTo({ top: sections[next].offsetTop, behavior: "smooth" });
+        setTimeout(() => (lock = false), 420);
+      }, { passive: false });
+    })();
+  </script>
 </BaseLayout>
