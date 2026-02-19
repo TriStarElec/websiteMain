@@ -1,0 +1,39 @@
+// ==============================
+// src/components/Services.astro
+// ==============================
+---
+const services = [
+  { t: 'Lighting', d: 'Downlights, pendants, feature lighting, dimming, scene control.' },
+  { t: 'Power', d: 'New points, kitchen/laundry upgrades, dedicated circuits.' },
+  { t: 'Switchboards', d: 'Upgrades, tidy rewires, surge protection, safety checks.' },
+  { t: 'Fault-finding', d: 'Tripping circuits, dead outlets, hot smells, weird buzzing.' },
+  { t: 'Outdoor', d: 'Garden lighting, weatherproof power, spa + pool compliance.' },
+  { t: 'EV charging', d: 'Home charger installs, load checks, clean cable management.' },
+];
+---
+<section class="section" id="services">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="h2">Services</h2>
+      <p class="muted">High-signal work, no fluff. If it’s electrical and you want it done properly, it’s us.</p>
+    </div>
+
+    <div class="cards">
+      {services.map((s) => (
+        <article class="card">
+          <h3 class="h3">{s.t}</h3>
+          <p class="p">{s.d}</p>
+          <div class="card__meta mono">Auckland • Residential + small commercial</div>
+        </article>
+      ))}
+    </div>
+
+    <div class="cta-strip">
+      <div>
+        <div class="cta-strip__title">Not sure what you need?</div>
+        <div class="muted">Send a photo + a one-line description. We’ll tell you the fastest path.</div>
+      </div>
+      <a class="btn" href="#contact">Message us</a>
+    </div>
+  </div>
+</section>

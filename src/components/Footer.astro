@@ -1,0 +1,51 @@
+// ==============================
+const year = new Date().getFullYear();
+---
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <span class="brand__mark" aria-hidden="true">★</span>
+          <div>
+            <div class="footer__name">Tri Star Electrical</div>
+            <div class="muted">Auckland • Residential + small commercial</div>
+          </div>
+        </div>
+        <p class="p">Tell us what you want done. Add photos if you can. We’ll reply with options.</p>
+      </div>
+
+      <form class="form" method="post" action="#">
+        <label class="label">
+          <span class="mono">Name</span>
+          <input class="input" name="name" autocomplete="name" required />
+        </label>
+        <label class="label">
+          <span class="mono">Phone</span>
+          <input class="input" name="phone" inputmode="tel" autocomplete="tel" required />
+        </label>
+        <label class="label">
+          <span class="mono">What do you need?</span>
+          <textarea class="input input--area" name="message" rows="4" required></textarea>
+        </label>
+        <button class="btn btn--block" type="submit">Send</button>
+        <div class="muted small">Wire this to your Jotform / Fergus intake later.</div>
+      </form>
+
+      <div class="footer__meta">
+        <div class="mono">Contact</div>
+        <a class="footer__link" href="tel:+64">Call</a>
+        <a class="footer__link" href="mailto:hello@tristarelectrical.co.nz">Email</a>
+        <div class="divider"></div>
+        <div class="mono">Social</div>
+        <a class="footer__link" href="#">Google</a>
+        <a class="footer__link" href="#">Instagram</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="muted small">© {year} Tri Star Electrical. All rights reserved.</div>
+      <div class="muted small mono">Built for speed • brutal by design</div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,28 @@
+// ==============================
+// src/components/FAQ.astro
+// ==============================
+---
+const faqs = [
+  { q: 'Do you service my area?', a: 'Auckland-wide. If you’re far out, we’ll tell you upfront.' },
+  { q: 'Can you quote from photos?', a: 'Often, yes. If it needs a site visit, we’ll keep it tight and purposeful.' },
+  { q: 'Do you do after-hours?', a: 'For urgent faults and safety issues, we can usually make it happen.' },
+  { q: 'Are you licensed?', a: 'Yes—licensed, insured, and we follow NZ compliance requirements.' },
+];
+---
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="h2">FAQ</h2>
+      <p class="muted">The predictable questions. The clean answers.</p>
+    </div>
+
+    <div class="faq">
+      {faqs.map((f) => (
+        <details class="faq__item">
+          <summary class="faq__q">{f.q}</summary>
+          <div class="faq__a muted">{f.a}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

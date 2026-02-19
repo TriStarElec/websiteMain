@@ -1,0 +1,31 @@
+// ==============================
+// src/components/Nav.astro
+// ==============================
+---
+const links = [
+  { href: '#services', label: 'Services' },
+  { href: '#process', label: 'Process' },
+  { href: '#work', label: 'Work' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="/">
+      <span class="brand__mark" aria-hidden="true">★</span>
+      <span class="brand__name">TRI STAR</span>
+      <span class="brand__sub">Electrical • Auckland</span>
+    </a>
+
+    <div class="nav__links">
+      {links.map((l) => (
+        <a class="nav__link" href={l.href}>{l.label}</a>
+      ))}
+    </div>
+
+    <div class="nav__cta">
+      <a class="btn btn--ghost" href="#contact">Get a quote</a>
+      <a class="btn" href="tel:+64">Call</a>
+    </div>
+  </nav>
+</header>
