@@ -2,6 +2,8 @@
 const {
   variant = "white",     // "white" | "black" | "image"
   image = "",            // "/images/..."
+  imagePosition = "center",
+  imagePositionMobile = imagePosition,
   scrim = true,
   id = undefined,
 } = Astro.props;
@@ -14,7 +16,10 @@ const cls =
 <section id={id} class={cls} data-snap-section>
   {variant === "image" && image && (
     <>
-      <div class="bgImg" style={`background-image:url(${image});`}></div>
+      <div
+        class="bgImg"
+        style={`background-image:url(${image});--bg-pos:${imagePosition};--bg-pos-mobile:${imagePositionMobile};`}
+      ></div>
       {scrim && <div class="scrim"></div>}
     </>
   )}

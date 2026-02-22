@@ -52,8 +52,9 @@ body {
   margin: 0;
 }
 
-.ctaRow {
-  display: inline-flex;
+.ctaColumn {
+  display: flex;
+  flex-direction: column;
   gap: 1.2rem;
   margin-top: 1.8rem;
 }
@@ -76,8 +77,8 @@ body {
   text-transform: uppercase;
   font-size: .95rem;
   padding: .9rem 1.2rem;
-  border: 1px solid currentColor;
-  border-radius: 999px;
+  /*border: 1px solid currentColor;
+  border-radius: 999px;*/
 }
 
 .bgImg {
