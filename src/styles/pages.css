@@ -1,0 +1,105 @@
+/* File: src/styles/pages.css */
+
+.contactPage {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--fg);
+  }
+  
+  .contactHero {
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+  }
+  
+  .ctaRow {
+    margin-top: 1.8rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .contactSection {
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+  }
+  
+  .sectionTitle {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    letter-spacing: -0.02em;
+    margin: 0 0 .6rem;
+  }
+  
+  .sectionText {
+    margin: 0 0 1.4rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  
+  .mapWrap {
+    position: relative;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(0,0,0,.02);
+    box-shadow: 0 10px 40px rgba(0,0,0,.08);
+  }
+  
+  .mapWrap::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+  
+  .mapWrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  .areaPills {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    justify-content: center;
+  }
+  
+  .pill {
+    display: inline-block;
+    padding: .55rem .9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.14);
+    font-weight: 650;
+    letter-spacing: .02em;
+    font-size: .95rem;
+    background: rgba(255,255,255,.7);
+  }
+  
+  .formWrap {
+    margin-top: .6rem;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.12);
+    box-shadow: 0 10px 40px rgba(0,0,0,.08);
+    background: #fff;
+  }
+  
+  .finePrint {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: .2rem;
+    flex-wrap: wrap;
+    opacity: .9;
+  }
+  
+  @media (max-width: 520px) {
+    .pill { font-size: .9rem; }
+    .sectionText { font-size: 1rem; }
+    .mapWrap { border-radius: 14px; }
+    .formWrap { border-radius: 14px; }
+  }

@@ -1,0 +1,36 @@
+/* File: src/styles/global.css */
+
+:root {
+    --bg: #fff;
+    --fg: #000;
+    --muted: rgba(0,0,0,.72);
+  }
+  
+  html, body { height: 100%; }
+  
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  }
+  
+  /* Shared layout helper */
+  .center {
+    width: min(980px, calc(100% - 3rem));
+    text-align: center;
+  }
+  
+  /* Shared typography */
+  .h1 {
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0 0 0.8rem;
+  }
+  
+  .h2 {
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    color: var(--muted);
+    margin: 0;
+  }

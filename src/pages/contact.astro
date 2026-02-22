@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/contact.css";
+
+const INTAKE_URL = "https://form.jotform.com/260426008422043";
+const MAP_EMBED_SRC =
+  "https://www.google.com/maps?q=Auckland%2C%20New%20Zealand&z=10&output=embed";
+---
+
+<BaseLayout title="Contact — Tri Star Electrical">
+  <main class="contactPage">
+    <header class="contactHero">
+      <div class="center">
+        <h1 class="h1">Contact Tri Star Electrical</h1>
+        <p class="h2">Auckland-based. Residential, commercial, and industrial.</p>
+
+        <div class="ctaRow">
+          <a class="linkBtn" href="#form">Jump to the form</a>
+          <a class="linkBtn" href="#map">View service area</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="contactSection" id="map">
+      <div class="center">
+        <h2 class="sectionTitle">Service area</h2>
+        <p class="sectionText">
+          We work across Auckland (and nearby). If you’re unsure, send it through — we’ll confirm fast.
+        </p>
+
+        <div class="mapWrap">
+          <iframe
+            title="Tri Star Electrical — Service Area Map"
+            src={MAP_EMBED_SRC}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          />
+        </div>
+
+        <div class="areaPills" aria-label="Common service locations">
+          <span class="pill">Central</span>
+          <span class="pill">North Shore</span>
+          <span class="pill">East</span>
+          <span class="pill">West</span>
+          <span class="pill">South</span>
+          <span class="pill">Rodney / Hibiscus Coast</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contactSection" id="form">
+      <div class="center">
+        <h2 class="sectionTitle">Send an enquiry</h2>
+        <p class="sectionText">
+          Use the form below. Include photos and as much detail as you can — it helps us quote accurately.
+        </p>
+
+        <div class="formWrap">
+          <iframe
+            title="Tri Star Electrical — Contact Form"
+            src={`${INTAKE_URL}?isIframeEmbed=1`}
+            loading="lazy"
+            frameborder="0"
+            style="width: 100%; height: 980px; border: 0;"
+            allow="geolocation; microphone; camera"
+          />
+        </div>
+
+        <div class="finePrint">
+          <a class="linkText" href="/">Back to home</a>
+          <a class="linkText" href="/services">Services</a>
+          <a class="linkText" href="/about">About</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
