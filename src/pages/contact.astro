@@ -1,73 +1,85 @@
 ---
+// File: src/pages/contact.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
-import "../styles/components.css"
 import "../styles/pages.css";
 
+const CONTACT_HERO_IMG = "/images/contact-hero.jpg";
+
 const INTAKE_URL = "https://form.jotform.com/260426008422043";
+
 const MAP_EMBED_SRC =
-"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172785.34291724444!2d174.7471353!3d-36.7993832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4e8041ec12c6511b%3A0xc01de697d432b4f3!2sTri%20Star%20Electrical!5e1!3m2!1sen!2snz!4v1771805256908!5m2!1sen!2snz";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172785.34291724444!2d174.7471353!3d-36.7993832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4e8041ec12c6511b%3A0xc01de697d432b4f3!2sTri%20Star%20Electrical!5e1!3m2!1sen!2snz!4v1771805256908!5m2!1sen!2snz";
 ---
 
 <BaseLayout title="Contact — Tri Star Electrical">
-  <main class="contactPage">
-    <header class="contactHero">
-      <div class="center">
-        <h1 class="h1">Contact Tri Star Electrical</h1>
-        <p class="h2">Auckland-based. Industrial, Commercial, and Residential.</p>
-      </div>
-      <div class="center">
-        <a class="linkBtn" href=#form>Contact Now</a>
+  <main class="page">
+    <header class="pageHero">
+      <div
+        class="heroBg"
+        style={`background-image:url(${CONTACT_HERO_IMG});`}
+        aria-hidden="true"
+      ></div>
+      <div class="heroScrim" aria-hidden="true"></div>
+
+      <div class="center heroInner">
+        <h1 class="h1 heroTitle">Contact</h1>
+        <p class="h2 heroSub">
+          Auckland-based. Industrial, Commercial, and Residential.
+        </p>
+        <div class="ctaRow">
+          <a class="linkBtn linkBtn--solid" href="#form">Contact Now</a>
+        </div>
       </div>
     </header>
 
-    <section class="contactSection" id="map">
+    <section class="pageSection" id="map">
       <div class="center">
-        <h2 class="sectionTitle">Service area</h2>
+        <h2 class="sectionTitle">Service Area</h2>
         <p class="sectionText">
-          We work across Auckland and the North Shore. If you’re unsure, send it through — we’ll confirm fast.
+          We work across Auckland and the North Shore. If you’re unsure,
+          send it through — we’ll confirm fast.
         </p>
 
         <div class="mapWrap">
           <iframe
-            title="Tri Star Electrical — Service Area Map"
+            title="Tri Star Electrical Location"
             src={MAP_EMBED_SRC}
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
           />
-        </div>
-
-        <div class="areaPills" aria-label="Common service locations">
-          <span class="pill">Central</span>
-          <span class="pill">North Shore</span>
-          <span class="pill">East</span>
-          <span class="pill">West</span>
-          <span class="pill">South</span>
-          <!--<span class="pill">Rodney / Hibiscus Coast</span>-->
         </div>
       </div>
     </section>
 
-    <section class="contactSection" id="form">
+    <section class="pageSection" id="form">
       <div class="center">
-        <h2 class="sectionTitle">Send an enquiry</h2>
+        <h2 class="sectionTitle">Send an Enquiry</h2>
         <p class="sectionText">
-          Use the form below. Send us a message and we'll get back to you as soon as possible.
+          Include photos and as much detail as possible. Clear information
+          means accurate quoting.
         </p>
 
         <div class="formWrap">
           <iframe
-            title="Tri Star Electrical — Contact Form"
+            title="Tri Star Electrical Contact Form"
             src={`${INTAKE_URL}?isIframeEmbed=1`}
             loading="lazy"
-            frameborder="0"
             style="width: 100%; height: 980px; border: 0;"
-            allow="geolocation; microphone; camera"
           />
         </div>
+      </div>
+    </section>
+
+    <section class="pageFooterCta">
+      <div class="center">
+        <h2 class="sectionTitle">Prefer to talk first?</h2>
+        <p class="sectionText">
+          Reach out and we’ll point you in the right direction.
+        </p>
 
         <div class="finePrint">
-          <a class="linkText" href="/">Back to home</a>
+          <a class="linkText" href="/">Home</a>
           <a class="linkText" href="/services">Services</a>
           <a class="linkText" href="/about">About</a>
         </div>
