@@ -18,6 +18,7 @@
   /* Shared layout helper */
   .center {
     width: min(980px, calc(100% - 3rem));
+    margin: 0 auto;
     text-align: center;
   }
   
