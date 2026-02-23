@@ -1,14 +1,29 @@
 /* File: src/styles/pages.css */
 
-.contactPage {
+/* --- shared page layout --- */
+.page {
     min-height: 100vh;
     background: var(--bg);
     color: var(--fg);
   }
   
-  .contactHero {
-    padding: clamp(4rem, 8vw, 7rem) 0;
-    border-bottom: 1px solid rgba(0,0,0,.08);
+  .pageSection {
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+  }
+  
+  .sectionTitle {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    letter-spacing: -0.02em;
+    margin: 0 0 .6rem;
+    text-align: center;
+  }
+  
+  .sectionText {
+    margin: 0 0 1.4rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    text-align: center;
   }
   
   .ctaRow {
@@ -19,23 +34,84 @@
     flex-wrap: wrap;
   }
   
-  .contactSection {
-    padding: clamp(2.5rem, 6vw, 4rem) 0;
+  /* --- hero --- */
+  .pageHero {
+    position: relative;
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    overflow: hidden;
   }
   
-  .sectionTitle {
-    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-    letter-spacing: -0.02em;
-    margin: 0 0 .6rem;
+  .heroBg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: 50% 45%;
+    transform: scale(1.02);
   }
   
-  .sectionText {
-    margin: 0 0 1.4rem;
+  .heroScrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.42);
+  }
+  
+  .heroInner {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .heroTitle,
+  .heroSub {
+    color: #fff;
+  }
+  
+  .heroSub {
+    color: rgba(255,255,255,.84);
+  }
+  
+  /* --- services --- */
+  .serviceList {
+    margin: 1rem auto 0;
+    padding: 0;
+    list-style: none;
+    width: min(760px, 100%);
+    text-align: left;
+  }
+  
+  .serviceList li {
+    padding: .85rem 1rem;
+    border: 1px solid rgba(0,0,0,.10);
+    border-radius: 14px;
+    margin: .6rem 0;
+    background: rgba(255,255,255,.75);
+  }
+  
+  /* --- residential quoting note --- */
+  .noteBox {
+    margin: 1.6rem auto 0;
+    width: min(760px, 100%);
+    border-radius: 18px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(0,0,0,.03);
+    padding: 1.2rem 1.2rem;
+  }
+  
+  .noteTitle {
+    margin: 0 0 .35rem;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    text-align: left;
+  }
+  
+  .noteText {
+    margin: 0;
     color: var(--muted);
-    font-size: 1.05rem;
-    line-height: 1.5;
+    line-height: 1.55;
+    text-align: left;
   }
   
+  /* --- contact page pieces (carried over from contact.css) --- */
   .mapWrap {
     position: relative;
     width: 100%;
@@ -97,9 +173,16 @@
     opacity: .9;
   }
   
+  .pageFooterCta {
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    border-top: 1px solid rgba(0,0,0,.08);
+  }
+  
   @media (max-width: 520px) {
     .pill { font-size: .9rem; }
     .sectionText { font-size: 1rem; }
     .mapWrap { border-radius: 14px; }
     .formWrap { border-radius: 14px; }
+    .serviceList li { border-radius: 12px; }
+    .noteBox { border-radius: 14px; }
   }
