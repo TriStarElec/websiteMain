@@ -31,7 +31,7 @@ body {
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: saturate(0.95) contrast(1.05);
+  /*filter: saturate(0.95) contrast(1.05);*/
 }
 
 .scrim {
