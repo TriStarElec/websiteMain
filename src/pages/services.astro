@@ -9,7 +9,11 @@ const SERVICE_HERO_IMG = "/images/services-hero.jpg";
 <BaseLayout title="Services — Tri Star Electrical">
   <main class="page">
     <header class="pageHero">
-      <div class="heroBg" style={`background-image:url(${SERVICE_HERO_IMG});`} aria-hidden="true"></div>
+      <div
+        class="heroBg"
+        style={`background-image:url(${SERVICE_HERO_IMG});`}
+        aria-hidden="true"
+      ></div>
       <div class="heroScrim" aria-hidden="true"></div>
 
       <div class="center heroInner">
@@ -21,58 +25,58 @@ const SERVICE_HERO_IMG = "/images/services-hero.jpg";
       </div>
     </header>
 
-    <section class="pageSection" id="residential">
+    <section class="pageSection" id="services">
       <div class="center">
-        <h2 class="sectionTitle">Residential</h2>
-        <ul class="serviceList">
-          <li>Switchboards & rewires</li>
-          <li>Fault finding & repairs</li>
-          <li>Renovations & additions</li>
-          <li>Lighting (interior/exterior) & feature installs</li>
-          <li>Power points, USB, data, TV</li>
-          <li>Heat pumps, ventilation, bathroom fans</li>
-          <li>EV chargers</li>
-          <li>Smart home wiring & upgrades</li>
-        </ul>
+        <div class="servicesGrid">
+          <article class="serviceCard" id="residential">
+            <h2 class="serviceCardTitle">Residential</h2>
+            <ul class="serviceList">
+              <li>Switchboards & rewires</li>
+              <li>Fault finding & repairs</li>
+              <li>Renovations & additions</li>
+              <li>Lighting (interior/exterior) & feature installs</li>
+              <li>Power points, USB, data, TV</li>
+              <li>Heat pumps, ventilation, bathroom fans</li>
+              <li>EV chargers</li>
+              <li>Smart home wiring & upgrades</li>
+            </ul>
 
-        <div class="noteBox">
-          <h3 class="noteTitle">Fixed-cost residential quoting</h3>
-          <p class="noteText">
-            All residential work is quoted at a fixed cost. If anything changes on-site, we’ll clearly
-            explain the variation and get your approval before continuing — so there are no surprises
-            when the invoice lands.
-          </p>
+            <div class="noteBox">
+              <h3 class="noteTitle">Fixed-cost residential quoting</h3>
+              <p class="noteText">
+                All residential work is quoted at a fixed cost. If anything changes on-site, we’ll clearly
+                explain the variation and get your approval before continuing — so there are no surprises
+                when the invoice lands.
+              </p>
+            </div>
+          </article>
+
+          <article class="serviceCard" id="commercial">
+            <h2 class="serviceCardTitle">Commercial</h2>
+            <ul class="serviceList">
+              <li>Tenant fit-outs & refurbishments</li>
+              <li>Office lighting upgrades (LED conversions)</li>
+              <li>Power, data & communications</li>
+              <li>Emergency & exit lighting</li>
+              <li>Planned maintenance & reactive callouts</li>
+              <li>Switchboards, distribution & load upgrades</li>
+              <li>Compliance checks & reporting</li>
+            </ul>
+          </article>
+
+          <article class="serviceCard" id="industrial">
+            <h2 class="serviceCardTitle">Industrial</h2>
+            <ul class="serviceList">
+              <li>Breakdowns, fault finding & repairs</li>
+              <li>Motor control, isolation & safety upgrades</li>
+              <li>PLC/controls support & modifications</li>
+              <li>Machine/plant wiring & troubleshooting</li>
+              <li>Preventative maintenance</li>
+              <li>Switchboards, MCCs & distribution</li>
+              <li>Instrumentation & process wiring</li>
+            </ul>
+          </article>
         </div>
-      </div>
-    </section>
-
-    <section class="pageSection" id="commercial">
-      <div class="center">
-        <h2 class="sectionTitle">Commercial</h2>
-        <ul class="serviceList">
-          <li>Tenant fit-outs & refurbishments</li>
-          <li>Office lighting upgrades (LED conversions)</li>
-          <li>Power, data & communications</li>
-          <li>Emergency & exit lighting</li>
-          <li>Planned maintenance & reactive callouts</li>
-          <li>Switchboards, distribution & load upgrades</li>
-          <li>Compliance checks & reporting</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="pageSection" id="industrial">
-      <div class="center">
-        <h2 class="sectionTitle">Industrial</h2>
-        <ul class="serviceList">
-          <li>Breakdowns, fault finding & repairs</li>
-          <li>Motor control, isolation & safety upgrades</li>
-          <li>PLC/controls support & modifications</li>
-          <li>Machine/plant wiring & troubleshooting</li>
-          <li>Preventative maintenance</li>
-          <li>Switchboards, MCCs & distribution</li>
-          <li>Instrumentation & process wiring</li>
-        </ul>
       </div>
     </section>
 
