@@ -3,9 +3,10 @@
 .ctaColumn {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* if you're centering */
     gap: 1.2rem;
-    margin-top: 1.8rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   
   .menuRow {
