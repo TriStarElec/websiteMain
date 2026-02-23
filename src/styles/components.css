@@ -43,7 +43,6 @@
 
   .linkBtn--solid {
     color: white;
-    background-color: currentColor;
-    color: #000; /* or your --bg variable */
-    border: 1px solid currentColor;
+    background-color: black;
+    border: 1px solid black;
   }
