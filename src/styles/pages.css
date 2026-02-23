@@ -70,21 +70,51 @@
     color: rgba(255,255,255,.84);
   }
   
-  /* --- services --- */
-  .serviceList {
-    margin: 1rem auto 0;
+/* --- services grid --- */
+
+.servicesGrid {
+    margin: 1.2rem auto 0;
+    width: min(1200px, 100%);
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+  }
+  
+  /* Remove card box styling */
+  .serviceCard {
     padding: 0;
-    list-style: none;
-    width: min(760px, 100%);
+    border: none;
+    background: none;
+  }
+  
+  /* Title */
+  .serviceCardTitle {
+    margin: 0 0 .8rem;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
     text-align: left;
   }
   
+  /* Restore real bullets */
+  .serviceList {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style: disc;
+  }
+  
   .serviceList li {
-    padding: .85rem 1rem;
-    border: 1px solid rgba(0,0,0,.10);
-    border-radius: 14px;
-    margin: .6rem 0;
-    background: rgba(255,255,255,.75);
+    margin: .45rem 0;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  
+  /* Keep desktop 3-column layout */
+  @media (min-width: 980px) {
+    .servicesGrid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+    }
   }
   
   /* --- residential quoting note --- */
