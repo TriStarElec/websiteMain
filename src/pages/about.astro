@@ -1,0 +1,104 @@
+---
+/* File: src/pages/about.astro */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/pages.css";
+
+const ABOUT_HERO_IMG = "/images/about-hero.jpg";
+---
+
+<BaseLayout title="About — Tri Star Electrical">
+  <main class="page">
+    <header class="pageHero">
+      <div
+        class="heroBg"
+        style={`background-image:url(${ABOUT_HERO_IMG});`}
+        aria-hidden="true"
+      ></div>
+      <div class="heroScrim" aria-hidden="true"></div>
+
+      <div class="center heroInner">
+        <h1 class="h1 heroTitle">About</h1>
+        <p class="h2 heroSub">
+          Auckland electricians for people who care about doing it properly.
+        </p>
+        <div class="ctaRow">
+          <a class="linkBtn linkBtn--solid" href="/contact#form">Contact Now</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="pageSection">
+      <div class="center">
+        <h2 class="sectionTitle">Straight-up, high-standard electrical work</h2>
+        <p class="sectionText">
+          Tri Star Electrical exists to raise the bar — clean workmanship, clear communication,
+          and jobs finished properly. We work across residential, commercial, and industrial sites,
+          bringing the same standards to every job.
+        </p>
+
+        <div class="aboutGrid">
+          <div class="aboutCard">
+            <h3 class="aboutCardTitle">How we work</h3>
+            <ul class="aboutList">
+              <li>Turn up when we say we will</li>
+              <li>Explain options and trade-offs in plain English</li>
+              <li>Protect your space, keep it tidy, and finish clean</li>
+              <li>Test, label, and document properly</li>
+              <li>Stand behind our work</li>
+            </ul>
+          </div>
+
+          <div class="aboutCard">
+            <h3 class="aboutCardTitle">What you can expect</h3>
+            <ul class="aboutList">
+              <li>Clear scope, clear pricing</li>
+              <li>Quality parts and correct installation</li>
+              <li>Safety-first approach on every site</li>
+              <li>Good comms — no ghosting</li>
+              <li>Long-term reliability, not quick fixes</li>
+            </ul>
+          </div>
+
+          <div class="aboutCard">
+            <h3 class="aboutCardTitle">Who we help</h3>
+            <ul class="aboutList">
+              <li>Homeowners and property managers</li>
+              <li>Builders and renovation teams</li>
+              <li>Facility and operations managers</li>
+              <li>Small business owners</li>
+              <li>Industrial sites needing dependable support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pageSection aboutBand">
+      <div class="center">
+        <h2 class="sectionTitle">No surprises</h2>
+        <p class="sectionText">
+          For residential work, we quote fixed price wherever possible. If anything changes on-site,
+          we’ll explain the variation and get approval before proceeding — so invoicing is never a shock.
+        </p>
+      </div>
+    </section>
+
+    <section class="pageFooterCta">
+      <div class="center">
+        <h2 class="sectionTitle">Want the job done properly?</h2>
+        <p class="sectionText">
+          Send through the details — we’ll come back with a clear plan and price.
+        </p>
+        <div class="ctaRow">
+          <a class="linkBtn linkBtn--solid" href="/contact#form">Contact Now</a>
+        </div>
+
+        <div class="finePrint">
+          <a class="linkText" href="/">Home</a>
+          <a class="linkText" href="/services">Services</a>
+          <a class="linkText" href="/contact">Contact</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
