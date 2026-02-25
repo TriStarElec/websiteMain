@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Locations — Tri Star Electrical";
+const description = "Find your local Tri Star Electrical service area across Auckland. Search landing pages for suburbs and residential electrical services.";
+const canonical = "https://tristarelectrical.co.nz/locations";
+
+const locations = [
+  { name: "Remuera", href: "/locations/electrician-remuera" },
+  { name: "Epsom", href: "/locations/electrician-epsom" },
+  { name: "Newmarket", href: "/locations/electrician-newmarket" },
+  { name: "Parnell", href: "/locations/electrician-parnell" },
+  { name: "Orakei", href: "/locations/electrician-orakei" },
+  { name: "Greenlane", href: "/locations/electrician-greenlane" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <main class="wrap">
+    <header class="hdr">
+      <h1 class="h1">Locations</h1>
+      <p class="p">Residential electrician pages for Auckland suburbs.</p>
+    </header>
+
+    <section class="grid">
+      {locations.map((l) => (
+        <a class="card" href={l.href}>
+          <strong>Electrician {l.name}</strong>
+          <span>View page →</span>
+        </a>
+      ))}
+    </section>
+  </main>
+
+  <style>
+    .wrap{width:min(1120px,calc(100% - 2rem));margin:0 auto;padding:3rem 0;}
+    .hdr{margin:0 0 1.5rem;}
+    .h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem;}
+    .p{margin:0;color:rgba(0,0,0,.72);}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+    @media (max-width: 900px){.grid{grid-template-columns:1fr;}}
+    .card{
+      display:flex;justify-content:space-between;align-items:center;
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:1.1rem;
+      text-decoration:none;color:inherit;background:#fff;
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+    }
+    .card span{opacity:.75;}
+  </style>
+</BaseLayout>
