@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const suburb = {
+  name: "Epsom",
+  city: "Auckland",
+  slug: "electrician-epsom",
+  canonical: "https://tristarelectrical.co.nz/locations/electrician-epsom",
+  heroImage: "/images/heroes/residential-hero.jpg",
+  intro:
+    "Epsom blends character bungalows, premium new builds, and education precincts, so electrical work ranges from fast call-outs to carefully staged renovations. We upgrade switchboards ahead of kitchen projects, add power for home offices, and resolve nuisance tripping before it disrupts remote work. When schools and clinics along Gillies Ave need maintenance, we plan shutdowns outside teaching hours and leave clear reports for property teams. For homeowners, we coordinate with builders, cabinet makers, and HVAC installers to keep timelines tight and surfaces protected. Every job ends with photos, compliance certificates, and recommendations so you’re prepared for the next stage.",
+  nearby: ["Newmarket", "Mt Eden", "Remuera", "Royal Oak", "Greenlane"],
+  faqs: [
+    {
+      q: "Can you quote from plans for an extension?",
+      a: "Yes. Send architectural drawings or even a phone scan and we’ll return a scoped quote with switchboard allowances and appliance loadings.",
+    },
+    {
+      q: "Do you work weekends around exam schedules?",
+      a: "We can book weekend or evening slots so schools, clinics, and tutoring centres stay open during the week.",
+    },
+    {
+      q: "What about EV chargers on shared driveways?",
+      a: "We assess load, add dedicated protection, and route cabling neatly so multiple households can still access the driveway.",
+    },
+  ],
+};
+
+const title = `Electrician ${suburb.name} — Tri Star Electrical`;
+const description = "Epsom electricians for villas, schools, and clinics — fixed-scope upgrades, tidy installs, and dependable maintenance.";
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://tristarelectrical.co.nz/" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://tristarelectrical.co.nz/locations" },
+      { "@type": "ListItem", position: 3, name: `Electrician ${suburb.name}`, item: suburb.canonical },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: suburb.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={suburb.canonical} structuredData={structuredData}>
+  <main class="location">
+    <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
+      <div class="scrim"></div>
+      <div class="hero__inner">
+        <p class="eyebrow">Central Auckland • Residential & Education</p>
+        <h1>Electrician {suburb.name}</h1>
+        <p>{suburb.intro}</p>
+        <div class="ctaRow">
+          <a class="btn" href="/contact#form">Request a quote</a>
+          <a class="btn btn--ghost" href="/services">View services</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="grid">
+        <div>
+          <h2>Nearby areas served</h2>
+          <ul class="pillList">
+            {suburb.nearby.map((area) => (
+              <li>{area}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2>Popular call-outs</h2>
+          <ul>
+            <li>Switchboard + RCD upgrades for renovations</li>
+            <li>Lighting refreshes for tutoring centres</li>
+            <li>Heat-pump and EV circuits in family homes</li>
+            <li>Fault finding before property settlements</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQs</h2>
+      <div class="faq">
+        {suburb.faqs.map((faq) => (
+          <details>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @import "../../styles/pages.css";
+  .location { background:#fff; color:#111; }
+  .hero { position:relative; padding:4rem 0; background-size:cover; background-position:center; }
+  .scrim { position:absolute; inset:0; background:rgba(0,0,0,.55); }
+  .hero__inner { position:relative; width:min(960px,90%); margin:0 auto; color:#fff; }
+  .hero__inner h1 { font-size:clamp(2.4rem,4vw,3.6rem); margin:.4rem 0 1rem; }
+  .hero__inner p { font-size:1.05rem; line-height:1.6; }
+  .eyebrow { text-transform:uppercase; letter-spacing:.2em; font-weight:600; }
+  .ctaRow { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
+  .btn { padding:.85rem 1.4rem; border-radius:999px; border:1px solid currentColor; background:#fff; color:#000; font-weight:700; text-decoration:none; }
+  .btn--ghost { background:transparent; color:#fff; border-color:#fff; }
+  .section { padding:3rem 0; width:min(960px,90%); margin:0 auto; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; }
+  .pillList { list-style:none; display:flex; flex-wrap:wrap; gap:.6rem; padding:0; }
+  .pillList li { padding:.4rem .9rem; border-radius:999px; background:rgba(0,0,0,.08); font-weight:600; }
+  .faq details { border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+  .faq summary { cursor:pointer; font-weight:700; }
+</style>

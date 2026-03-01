@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const suburb = {
+  name: "Devonport",
+  city: "Auckland",
+  slug: "electrician-devonport",
+  canonical: "https://tristarelectrical.co.nz/locations/electrician-devonport",
+  heroImage: "/images/heroes/residential-hero.jpg",
+  intro:
+    "Devonport’s villas, naval housing, and boutique retail strips need electricians who respect heritage detailing while keeping everything compliant. We plan containment routes before touching shiplap ceilings, protect polished timber, and communicate so you always know what’s next. Whether you’re rewiring a Stanley Bay villa, adding garden lighting above Cheltenham Beach, or refitting a cafe on Victoria Road, we coordinate access with ferry schedules, keep noise low, and deliver fully documented results. We also manage EV charger installs for tight driveways, new submains for home offices, and fast call-outs when a corroded switch trips after a storm. Our reporting includes photos, COCs, and maintenance notes so you can share them with insurers or future buyers.",
+  nearby: ["Stanley Point", "Cheltenham", "Bayswater", "Belmont", "Takapuna"],
+  faqs: [
+    {
+      q: "Can you work around ferry hours and limited parking?",
+      a: "Yes. We plan deliveries and noisy work outside peak commute times and keep neighbours informed when scaffolds or lifts are required.",
+    },
+    {
+      q: "Do you handle salt-air corrosion issues?",
+      a: "We specify marine-grade fittings, gel-filled terminations, and scheduled inspections to stay ahead of the salt-laden environment.",
+    },
+    {
+      q: "What if my renovation involves council heritage controls?",
+      a: "We liaise with your designer and council inspectors, documenting penetrations and ensuring every fixture meets the consent conditions.",
+    },
+  ],
+};
+
+const title = `Electrician ${suburb.name} — Tri Star Electrical`;
+const description = "Devonport electricians for villas, retail, and marine homes — neat workmanship, heritage-safe methods, and full certification.";
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://tristarelectrical.co.nz/" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://tristarelectrical.co.nz/locations" },
+      { "@type": "ListItem", position: 3, name: `Electrician ${suburb.name}`, item: suburb.canonical },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: suburb.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={suburb.canonical} structuredData={structuredData}>
+  <main class="location">
+    <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
+      <div class="scrim"></div>
+      <div class="hero__inner">
+        <p class="eyebrow">North Shore • Heritage Specialists</p>
+        <h1>Electrician {suburb.name}</h1>
+        <p>{suburb.intro}</p>
+        <div class="ctaRow">
+          <a class="btn" href="/contact#form">Request a quote</a>
+          <a class="btn btn--ghost" href="/services">View services</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="grid">
+        <div>
+          <h2>Nearby areas served</h2>
+          <ul class="pillList">
+            {suburb.nearby.map((area) => (
+              <li>{area}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2>Popular call-outs</h2>
+          <ul>
+            <li>Whole-home rewires that keep plaster intact</li>
+            <li>Outdoor + pool power for beachfront gardens</li>
+            <li>Retail fit-outs along Victoria Road</li>
+            <li>EV chargers and load management for villas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQs</h2>
+      <div class="faq">
+        {suburb.faqs.map((faq) => (
+          <details>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @import "../../styles/pages.css";
+  .location { background:#fff; color:#111; }
+  .hero { position:relative; padding:4rem 0; background-size:cover; }
+  .scrim { position:absolute; inset:0; background:rgba(0,0,0,.6); }
+  .hero__inner { position:relative; width:min(960px,90%); margin:0 auto; color:#fff; }
+  .hero__inner h1 { font-size:clamp(2.4rem,4vw,3.5rem); margin:.4rem 0 1rem; }
+  .hero__inner p { font-size:1.05rem; line-height:1.6; }
+  .eyebrow { text-transform:uppercase; letter-spacing:.2em; font-weight:600; }
+  .ctaRow { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
+  .btn { padding:.85rem 1.4rem; border-radius:999px; border:1px solid currentColor; background:#fff; color:#000; font-weight:700; text-decoration:none; }
+  .btn--ghost { background:transparent; color:#fff; border-color:#fff; }
+  .section { padding:3rem 0; width:min(960px,90%); margin:0 auto; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; }
+  .pillList { list-style:none; display:flex; flex-wrap:wrap; gap:.6rem; padding:0; }
+  .pillList li { padding:.4rem .9rem; border-radius:999px; background:rgba(0,0,0,.08); font-weight:600; }
+  .faq details { border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+  .faq summary { cursor:pointer; font-weight:700; }
+</style>
