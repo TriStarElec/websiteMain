@@ -1,0 +1,275 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const page = {
+  slug: "st-marys-bay",
+  city: "Auckland",
+  suburb: "St Marys Bay",
+  region: "Auckland",
+  country: "New Zealand",
+  brand: "Tri Star Electrical",
+  phone: "027 218 1540",
+  email: "jake@tristarelectrical.co.nz",
+  primaryService: "Residential Electrician",
+  serviceLabel: "Electrician",
+  siteName: "Tri Star Electrical",
+  siteUrl: "https://tristarelectrical.co.nz",
+  canonicalPath: "/locations/auckland/st-marys-bay",
+  ogImage: "/images/og/locations-st-marys-bay.jpg",
+  heroImage: "/images/heroes/residential-hero.jpg",
+  mapQuery: "St Marys Bay, Auckland, New Zealand",
+  serviceArea: [
+    "St Marys Bay",
+    "Shelley Beach Road",
+    "Curran Street",
+    "Jervois Road",
+    "Ponsonby",
+    "Herne Bay",
+  ],
+  nearbyLinks: [
+    { name: "Herne Bay", href: "/locations/auckland/herne-bay" },
+    { name: "Ponsonby", href: "/locations/auckland/ponsonby" },
+    { name: "Wynyard Quarter", href: "/locations/auckland/auckland-central" },
+    { name: "Freemans Bay", href: "/locations/auckland/freemans-bay" },
+    { name: "Westhaven", href: "/locations/auckland/westhaven" },
+  ],
+};
+
+const title = `Electrician ${page.suburb} — ${page.brand}`;
+const description =
+  `Need an electrician in ${page.suburb}? ${page.brand} handles villas, apartments, and waterfront upgrades with tidy installs and full certification.`;
+
+const canonicalUrl = new URL(page.canonicalPath, page.siteUrl).toString();
+
+const faqs = [
+  {
+    q: `Do you look after the cliff-side homes in ${page.suburb}?`,
+    a: `Yes. We plan access, safety, and containment before arriving so cliff-side or multi-level homes stay protected while we work.`,
+  },
+  {
+    q: "Can you manage multi-phase upgrades for lifts or car stackers?",
+    a: "We coordinate with Vector, arrange metering changes, and complete certification for lifts, stackers, and automated gates.",
+  },
+  {
+    q: "What about electrical work for yacht or boat storage?",
+    a: "We run new feeds, lighting, and outlets for Westhaven moorings and garage storage, keeping everything corrosion resistant.",
+  },
+  {
+    q: "Do you help with body corporate requirements?",
+    a: "Yes. We provide scope, insurance details, H&S paperwork, and close-out reports for body corporate approval.",
+  },
+  {
+    q: "How soon can you attend?",
+    a: "Send us the details and photos — we keep priority slots for St Marys Bay so urgent faults are covered within a couple of days where possible.",
+  },
+];
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: page.siteUrl + "/" },
+    { "@type": "ListItem", position: 2, name: "Locations", item: page.siteUrl + "/locations" },
+    { "@type": "ListItem", position: 3, name: `Electrician ${page.suburb}`, item: canonicalUrl },
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: page.brand,
+  url: page.siteUrl,
+  telephone: page.phone,
+  email: page.email,
+  areaServed: [
+    { "@type": "City", name: page.city },
+    ...page.serviceArea.map((s) => ({ "@type": "Place", name: s })),
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: page.city,
+    addressRegion: page.region,
+    addressCountry: page.country,
+  },
+};
+
+const jsonLd = [breadcrumbJsonLd, localBusinessJsonLd, faqJsonLd];
+---
+
+<BaseLayout title={title} description={description} canonical={canonicalUrl} structuredData={jsonLd}>
+  <main class="page">
+    <header class="hero" style={`--hero:url('${page.heroImage}')`}>
+      <div class="hero__overlay"></div>
+      <div class="wrap hero__inner">
+        <p class="eyebrow">Residential • {page.city}</p>
+        <h1 class="h1">Electrician {page.suburb}</h1>
+        <p class="sub">
+          Meticulous electrical work for cliff-top villas, apartments, and marine-focused homes in {page.suburb} — switchboards, lighting, EV, lifts, and more.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btn--solid" href="/contact#form">Get a Quote</a>
+        </div>
+
+        <ul class="trust">
+          <li>Clear scopes & communication</li>
+          <li>Respect for premium finishes</li>
+          <li>Certified & documented</li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="wrap section">
+      <div class="grid2">
+        <div>
+          <h2 class="h2">Local electrician in {page.suburb}</h2>
+          <p class="p">
+            We handle everything from discreet lighting in villa verandas to new mains for luxury apartments. Expect tidy installs, respectful tradespeople, and no surprises.
+          </p>
+
+          <div class="callout">
+            <h3 class="h3">Common call-outs in {page.suburb}</h3>
+            <ul class="list">
+              <li>Switchboard relocations ahead of renovations</li>
+              <li>Lighting and controls for indoor-outdoor living</li>
+              <li>Power + data for home offices overlooking the harbour</li>
+              <li>EV chargers, car stackers, and gate automation</li>
+              <li>Surge protection and monitoring for high-end appliances</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="card">
+          <h3 class="h3">Book an electrician</h3>
+          <p class="p small">
+            Send us plans, access notes, or body corporate requirements and we’ll line up the right techs and paperwork.
+          </p>
+          <div class="stack">
+            <a class="btn btn--solid" href="/contact#form">Request a Quote</a>
+            <a class="btn" href="/services">View Services</a>
+          </div>
+
+          <div class="divider"></div>
+
+          <h4 class="h4">Service area</h4>
+          <p class="p small">
+            {page.serviceArea.join(" • ")}
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wrap section section--muted">
+      <h2 class="h2">What you get</h2>
+      <div class="tiles">
+        <div class="tile">
+          <h3 class="h3">Detailed planning</h3>
+          <p class="p">We pre-plan isolation, access, and containment so neighbours and shared driveways stay happy.</p>
+        </div>
+        <div class="tile">
+          <h3 class="h3">Premium workmanship</h3>
+          <p class="p">Neat cable management, labelled circuits, and pristine fit-off for high-end interiors.</p>
+        </div>
+        <div class="tile">
+          <h3 class="h3">Compliance sorted</h3>
+          <p class="p">Testing, certificates, and as-builts provided digitally for easy record keeping.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="grid2">
+        <div>
+          <h2 class="h2">Popular residential services</h2>
+          <ul class="list">
+            <li><a class="link" href="/services#fault-finding">Fault finding & diagnostics</a></li>
+            <li><a class="link" href="/services#switchboards">Switchboards & surge protection</a></li>
+            <li><a class="link" href="/services#lighting">Architectural & exterior lighting</a></li>
+            <li><a class="link" href="/services#power">Powerpoints, circuits, equipment</a></li>
+            <li><a class="link" href="/services#ev-chargers">EV chargers & lift power</a></li>
+            <li><a class="link" href="/services#renovations">Renovations & additions</a></li>
+          </ul>
+
+          <div class="note">
+            <strong>Tip:</strong> Loop us in before scaffold goes up — we can relocate aerials, mains, and lighting while access is easy.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="h3">Get a fast, accurate quote</h3>
+          <ol class="steps">
+            <li>Tell us what you need or what’s failed.</li>
+            <li>Share any plans, access notes, or photos.</li>
+            <li>We confirm price, timeline, and paperwork.</li>
+          </ol>
+          <div class="stack">
+            <a class="btn btn--solid" href="/contact#form">Start Quote</a>
+            <a class="btn" href={`mailto:${page.email}`}>Email {page.email}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section section--muted">
+      <div class="grid2">
+        <div>
+          <h2 class="h2">Frequently asked questions</h2>
+          <div class="faq">
+            {faqs.map((f) => (
+              <details class="faqItem">
+                <summary>{f.q}</summary>
+                <p class="p">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="h3">Other nearby areas</h3>
+          <ul class="list">
+            {page.nearbyLinks.map((l) => (
+              <li><a class="link" href={l.href}>Electrician {l.name}</a></li>
+            ))}
+          </ul>
+
+          <div class="divider"></div>
+
+          <h4 class="h4">Map</h4>
+          <div class="map">
+            <iframe
+              title={`Map of ${page.suburb}`}
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(page.mapQuery)}&output=embed`}
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section finalCta">
+      <div class="finalCta__inner">
+        <h2 class="h2">Need an electrician in {page.suburb}?</h2>
+        <p class="p">Let us know the goal, timeline, and who else is on-site — we’ll keep everything aligned.</p>
+        <div class="ctaRow">
+          <a class="btn btn--solid" href="/contact#form">Request a Quote</a>
+          <a class="btn" href="/pricing">Pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @import "../../../styles/pages.css";
+</style>
