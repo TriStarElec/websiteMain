@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const suburb = {
+  name: "Balmoral",
+  city: "Auckland",
+  slug: "electrician-balmoral",
+  canonical: "https://tristarelectrical.co.nz/locations/electrician-balmoral",
+  heroImage: "/images/heroes/residential-hero.jpg",
+  intro:
+    "Balmoral combines bungalow-lined streets with some of Auckland’s busiest food spots. We keep both running smoothly: respectful rewires for family homes, fast kitchen call-outs for Dominion Road eateries, and tidy upgrades for new infill builds. Because parking gets tight, we arrive early, keep gear slim, and coordinate with neighbours if we need driveway access. Expect clean workmanship, labelled switchboards, and post-job reports you can forward to landlords or insurers without a chase-up. Whether you’re planning a renovation, need an EV charger, or just want a nuisance breaker sorted before service, we’ve got a crew nearby.",
+  nearby: ["Mt Eden", "Sandringham", "Three Kings", "Mt Roskill", "Epsom"],
+  faqs: [
+    {
+      q: "Can you work outside restaurant hours?",
+      a: "Yes. We book early morning or post-midnight slots so kitchens can keep trading.",
+    },
+    {
+      q: "Do you support landlords with Healthy Homes?",
+      a: "We document faults with photos, quote remedial work, and provide certificates for your records.",
+    },
+    {
+      q: "What about EV chargers on narrow sections?",
+      a: "We design load-managed installs and keep cabling neat so parking access isn’t blocked.",
+    },
+  ],
+};
+
+const title = `Electrician ${suburb.name} — Tri Star Electrical`;
+const description = "Balmoral electricians for homes and hospitality — neat upgrades, fast call-outs, and compliance-ready reporting.";
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://tristarelectrical.co.nz/" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://tristarelectrical.co.nz/locations" },
+      { "@type": "ListItem", position: 3, name: `Electrician ${suburb.name}`, item: suburb.canonical },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: suburb.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={suburb.canonical} structuredData={structuredData}>
+  <main class="location">
+    <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
+      <div class="scrim"></div>
+      <div class="hero__inner">
+        <p class="eyebrow">Inner West • Homes & Food Mile</p>
+        <h1>Electrician {suburb.name}</h1>
+        <p>{suburb.intro}</p>
+        <div class="ctaRow">
+          <a class="btn" href="/contact#form">Request a quote</a>
+          <a class="btn btn--ghost" href="/services">View services</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="grid">
+        <div>
+          <h2>Nearby areas served</h2>
+          <ul class="pillList">
+            {suburb.nearby.map((area) => (
+              <li>{area}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2>Popular call-outs</h2>
+          <ul>
+            <li>Switchboard upgrades before villa renovations</li>
+            <li>Outdoor + courtyard lighting for entertaining</li>
+            <li>EV charger installs with smart load control</li>
+            <li>Emergency kitchen + retail repairs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQs</h2>
+      <div class="faq">
+        {suburb.faqs.map((faq) => (
+          <details>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @import "../../styles/pages.css";
+  .location { background:#fff; color:#111; }
+  .hero { position:relative; padding:4rem 0; background-size:cover; background-position:center; }
+  .scrim { position:absolute; inset:0; background:rgba(0,0,0,.55); }
+  .hero__inner { position:relative; width:min(960px,90%); margin:0 auto; color:#fff; }
+  .hero__inner h1 { font-size:clamp(2.4rem,4vw,3.6rem); margin:.4rem 0 1rem; }
+  .hero__inner p { font-size:1.05rem; line-height:1.6; }
+  .eyebrow { text-transform:uppercase; letter-spacing:.2em; font-weight:600; }
+  .ctaRow { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
+  .btn { padding:.85rem 1.4rem; border-radius:999px; border:1px solid currentColor; background:#fff; color:#000; font-weight:700; text-decoration:none; }
+  .btn--ghost { background:transparent; color:#fff; border-color:#fff; }
+  .section { padding:3rem 0; width:min(960px,90%); margin:0 auto; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; }
+  .pillList { list-style:none; display:flex; flex-wrap:wrap; gap:.6rem; padding:0; }
+  .pillList li { padding:.4rem .9rem; border-radius:999px; background:rgba(0,0,0,.08); font-weight:600; }
+  .faq details { border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+  .faq summary { cursor:pointer; font-weight:700; }
+</style>
