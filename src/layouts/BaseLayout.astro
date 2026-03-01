@@ -1,15 +1,78 @@
 ---
 import "../styles/global.css";
 import "../styles/components.css";
+import { siteMeta } from "../data/site";
 
-const { title = "Tri Star Electrical" } = Astro.props;
+const {
+  title = siteMeta.brand,
+  description = siteMeta.defaultDescription,
+  canonical,
+  ogImage = "/images/heroes/residential-hero.webp",
+  structuredData = [],
+  noIndex = false,
+} = Astro.props;
+
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteMeta.siteUrl).toString();
+const ogImageUrl = new URL(ogImage, siteMeta.siteUrl).toString();
+const structuredArray = Array.isArray(structuredData)
+  ? structuredData.filter(Boolean)
+  : structuredData
+    ? [structuredData]
+    : [];
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${siteMeta.siteUrl}/#local-business`,
+  name: siteMeta.brand,
+  legalName: siteMeta.legalName,
+  url: siteMeta.siteUrl,
+  image: new URL(ogImage, siteMeta.siteUrl).toString(),
+  telephone: siteMeta.phone,
+  email: siteMeta.email,
+  description: siteMeta.tagline,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteMeta.address.streetAddress,
+    addressLocality: siteMeta.address.addressLocality,
+    addressRegion: siteMeta.address.addressRegion,
+    postalCode: siteMeta.address.postalCode,
+    addressCountry: siteMeta.address.addressCountry,
+  },
+  areaServed: [
+    { "@type": "City", name: siteMeta.city },
+    { "@type": "AdministrativeArea", name: siteMeta.region },
+  ],
+  sameAs: siteMeta.sameAs,
+};
+
+const jsonLdPayloads = [localBusinessJsonLd, ...structuredArray];
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en-NZ">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteMeta.brand} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="en_NZ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="theme-color" content="#000000" />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {jsonLdPayloads.map((payload) => (
+      <script type="application/ld+json" set:html={JSON.stringify(payload)} />
+    ))}
   </head>
   <body>
     <slot />
