@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Devonport",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "devonport",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/devonport",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Devonport’s villas, naval housing, and boutique retail strips need electricians who respect heritage detailing while keeping everything compliant. We plan containment routes before touching shiplap ceilings, protect polished timber, and communicate so you always know what’s next. Whether you’re rewiring a Stanley Bay villa, adding garden lighting above Cheltenham Beach, or refitting a cafe on Victoria Road, we coordinate access with ferry schedules, keep noise low, and deliver fully documented results. We also manage EV charger installs for tight driveways, new submains for home offices, and fast call-outs when a corroded switch trips after a storm. Our reporting includes photos, COCs, and maintenance notes so you can share them with insurers or future buyers.",
+  nearby: ["Stanley Point", "Cheltenham", "Bayswater", "Belmont", "Takapuna"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Can you work around ferry hours and limited parking?",
+      a: "Yes. We plan deliveries and noisy work outside peak commute times and keep neighbours informed when scaffolds or lifts are required.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Do you handle salt-air corrosion issues?",
+      a: "We specify marine-grade fittings, gel-filled terminations, and scheduled inspections to stay ahead of the salt-laden environment.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What if my renovation involves council heritage controls?",
+      a: "We liaise with your designer and council inspectors, documenting penetrations and ensuring every fixture meets the consent conditions.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Devonport electricians for villas, retail, and marine homes — neat workmanship, heritage-safe methods, and full certification.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">North Shore • Heritage Specialists</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Whole-home rewires that keep plaster intact</li>
+            <li>Outdoor + pool power for beachfront gardens</li>
+            <li>Retail fit-outs along Victoria Road</li>
+            <li>EV chargers and load management for villas</li>
           </ul>
         </div>
       </div>
@@ -105,10 +105,10 @@ const structuredData = [
 <style>
   @import "../../styles/pages.css";
   .location { background:#fff; color:#111; }
-  .hero { position:relative; padding:4rem 0; background-size:cover; background-position:center; }
-  .scrim { position:absolute; inset:0; background:rgba(0,0,0,.55); }
+  .hero { position:relative; padding:4rem 0; background-size:cover; }
+  .scrim { position:absolute; inset:0; background:rgba(0,0,0,.6); }
   .hero__inner { position:relative; width:min(960px,90%); margin:0 auto; color:#fff; }
-  .hero__inner h1 { font-size:clamp(2.4rem,4vw,3.6rem); margin:.4rem 0 1rem; }
+  .hero__inner h1 { font-size:clamp(2.4rem,4vw,3.5rem); margin:.4rem 0 1rem; }
   .hero__inner p { font-size:1.05rem; line-height:1.6; }
   .eyebrow { text-transform:uppercase; letter-spacing:.2em; font-weight:600; }
   .ctaRow { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }

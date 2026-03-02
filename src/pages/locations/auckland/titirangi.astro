@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Titirangi",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "titirangi",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/titirangi",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Titirangi’s bush-clad sections, steep driveways, and architect-designed homes demand careful electrical planning. We respect the setting: staging works to minimise disruption, protecting timber floors, and keeping wildlife-safe practices when running cables through native vegetation. Our team upgrades switchboards before renovations, adds power for studios and guesthouses, installs EV chargers, and designs low-glare outdoor lighting that blends into the bush. Storm knocks power out? We’re used to navigating windy roads and will bring the gear needed to restore supply safely and document it for insurance.",
+  nearby: ["Glen Eden", "Laingholm", "New Lynn", "Kaurilands", "Oratia"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Can you access steep driveways and limited parking?",
+      a: "Yes. We plan vehicle access, use compact setups, and keep materials staged to avoid multiple trips.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Do you protect native bush areas?",
+      a: "We mark cable routes carefully, avoid tree damage, and follow any covenants you have on site.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What about remote monitoring or smart lighting?",
+      a: "We integrate smart controls, sensors, and surge protection so your system stays reliable in rugged conditions.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Titirangi electricians for architecturals and bush homes — careful access planning, smart upgrades, and full certification.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">West Auckland • Bush Homes</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard + mains upgrades for architecturals</li>
+            <li>Studio + guesthouse power / data</li>
+            <li>Smart lighting + automation in bush settings</li>
+            <li>Storm damage diagnostics + repairs</li>
           </ul>
         </div>
       </div>
@@ -119,5 +119,5 @@ const structuredData = [
   .pillList { list-style:none; display:flex; flex-wrap:wrap; gap:.6rem; padding:0; }
   .pillList li { padding:.4rem .9rem; border-radius:999px; background:rgba(0,0,0,.08); font-weight:600; }
   .faq details { border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:1rem; margin-bottom:1rem; }
-  .faq summary { cursor:pointer; font-weight:700; }
+  .faq summary { cursor: pointer; font-weight:700; }
 </style>

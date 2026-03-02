@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Ōrākei",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "orakei",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/orakei",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Ōrākei spans cliff-top architecturals, classic 60s homes, and embassy-style estates. Power demand is growing fast — EV chargers, lifts, wine rooms, and fully automated lighting are now standard. We design and deliver electrical upgrades that respect the architecture while meeting today’s load requirements. Before arriving we confirm crane or driveway access, liaise with security teams, and pre-stage switchboard gear so outages stay short. Our work covers everything from new mains for rebuilds overlooking Hobson Bay to outdoor audio, pool lighting, and seawall pumps. Every visit ends with clear notes, compliance certificates, and guidance on future maintenance, so you’re never guessing.",
+  nearby: ["Mission Bay", "Kohimarama", "Remuera", "Meadowbank", "St Heliers"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Can you integrate with existing automation systems?",
+      a: "Yes. We work with KNX, Control4, and other automation partners to add circuits, sensors, or feature lighting without breaking existing programming.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Do you manage Vector coordination for mains upgrades?",
+      a: "We handle permits, isolation requests, and inspections so you only deal with one point of contact.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "Is weekend work possible for hosted events?",
+      a: "We book weekend or late-night slots when you’re entertaining so the property stays guest-ready.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Ōrākei electricians for luxury homes and rebuilds — mains upgrades, automation, EV charging, and coastal protection.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Eastern Bays • Luxury Projects</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Mains + switchboard upgrades for rebuilds</li>
+            <li>Automation-ready lighting + blind circuits</li>
+            <li>EV charger clusters with load management</li>
+            <li>Pool, spa, and seawall pump feeds</li>
           </ul>
         </div>
       </div>

@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Westmere",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "westmere",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/westmere",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Westmere blends renovated bungalows, architect-designed additions, and quiet harbour streets that expect respectful trades. We handle everything from rewiring villas near the zoo to installing garden lighting around Meola Reef. Our electricians coordinate with builders on extensions, run new mains for studios, and keep noise low for clients working remotely. When we finish, you get detailed photos, labelling, and compliance paperwork so your home is ready for valuation or insurance. We also help manage EV charging, spa circuits, and solar-ready switchboards so your property stays future-proof.",
+  nearby: ["Grey Lynn", "Point Chevalier", "Herne Bay", "Westmere Peninsula", "Meola"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Can you work around school pickup traffic?",
+      a: "Yes. We schedule arrivals outside peak times so our vans don’t choke narrow streets or shared driveways.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Do you install outdoor lighting for coastal boardwalks?",
+      a: "We design low-profile lighting with corrosion-resistant fittings suited to the harbour environment.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What if we’re mid-renovation?",
+      a: "We’ll align with your builder, provide clear stage pricing, and keep the site tidy between visits.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Westmere electricians who respect villas and new builds — rewires, outdoor lighting, EV chargers, and tidy workmanship.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Inner West • Villas & Extensions</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Rewires + board upgrades for villas</li>
+            <li>Studio + home office circuits</li>
+            <li>Outdoor + garden lighting near the harbour</li>
+            <li>EV charger installs for tandem parking</li>
           </ul>
         </div>
       </div>

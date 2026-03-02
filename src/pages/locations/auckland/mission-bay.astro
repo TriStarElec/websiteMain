@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Mission Bay",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "mission-bay",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/mission-bay",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Mission Bay homes face salt spray, entertainment deadlines, and cramped driveway access — so electrical work has to be planned and tidy. We look after beachfront apartments, Tamaki Drive villas, and hillside rebuilds, lining up scaffolds, landscapers, and pool crews so everyone stays on schedule. Our electricians protect polished floors, pre-label cabling for future upgrades, and keep noise low when families are working from home. Whether we’re fault-finding a tripping spa circuit, adding lighting to a roof terrace, or installing dual EV chargers, you get clear communication, photo updates, and compliance documents ready for insurers. We understand council event calendars and can schedule around summer hospitality rushes so your power stays reliable when the crowds arrive.",
+  nearby: ["Kohimarama", "St Heliers", "Orakei", "Meadowbank", "Glendowie"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Can you work around Tamaki Drive traffic?",
+      a: "Yes. We plan deliveries early, secure parking permits where needed, and keep neighbours notified so disruption stays minimal.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Do you offer coastal corrosion solutions?",
+      a: "We specify marine-rated fittings, stainless fixings, and gel-filled terminations to keep outdoor power reliable beside the water.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "How fast can you handle an urgent outage?",
+      a: "Send switchboard photos and details — we hold priority slots for Mission Bay and aim to attend within 24–48 hours for urgent issues.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Mission Bay electricians for coastal homes, apartments, and hospitality — tidy installs, corrosion control, and fast communication.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Eastern Bays • Coastal Specialists</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard upgrades before kitchen or pool projects</li>
+            <li>Outdoor and roof-terrace lighting</li>
+            <li>Dual EV chargers and load management</li>
+            <li>Fault finding for salt-affected circuits</li>
           </ul>
         </div>
       </div>

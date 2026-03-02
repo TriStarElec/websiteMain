@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Eden Terrace",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "eden-terrace",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/eden-terrace",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Eden Terrace is dense and vertical: loft apartments, creative studios, and small commercial suites tucked between Symonds Street and Upper Queen. Electrical work here needs quick turnarounds, tidy containment, and careful coordination with neighbours. We reconfigure power for studios, add lighting for galleries, and troubleshoot outages in older apartment blocks. Because loading zones are limited, we plan parking, travel light, and finish in one visit whenever possible. Every job wraps with photos, certificates, and maintenance notes so property managers and owners know exactly what was done.",
+  nearby: ["Mt Eden", "Kingsland", "Grafton", "Newton", "Auckland Central"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Do you work in shared stairwells and tight plant rooms?",
+      a: "Yes. We bring compact gear, protect common areas, and clean up before we leave.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Can you attend after hours for offices?",
+      a: "We offer early-morning and late-night slots so tenants keep trading during business hours.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What about integrating with existing BMS or access control?",
+      a: "We liaise with your BMS or security vendor to keep systems intact while we upgrade circuits or lighting.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Eden Terrace electricians for studios, apartments, and offices — fast turnaround, tidy installs, and clear reporting.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Inner City • Studios & Apartments</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Lighting + power for creative studios</li>
+            <li>Switchboard + RCD upgrades in apartments</li>
+            <li>Data + power tweaks for coworking spaces</li>
+            <li>Emergency repairs for hospitality tenancies</li>
           </ul>
         </div>
       </div>

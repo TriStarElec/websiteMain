@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Kelston",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "kelston",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/kelston",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Kelston spans schools, light industry, and classic family streets. We keep all of them powered: switchboard upgrades in rentals, EV charger installs for new homeowners, and urgent repairs for automotive or fabrication shops along Great North Road. Our electricians turn up when they say they will, explain options simply, and tidy up before leaving. We also provide compliance documentation for Healthy Homes files and school maintenance logs so you’re covered for audits.",
+  nearby: ["New Lynn", "Glen Eden", "Avondale", "Titirangi", "Te Atatū"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Can you schedule around school hours?",
+      a: "Yes. We book early or late slots so classes keep running, and we handle RAMS paperwork.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Do you service small industrial units?",
+      a: "Daily. We repair distribution gear, install machinery feeds, and run preventive maintenance.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What about EV chargers in older garages?",
+      a: "We assess supply, add load management, and keep installs tidy even when space is limited.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Kelston electricians for homes, schools, and workshops — dependable scheduling, neat workmanship, and instant documentation.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">West Auckland • Schools & Workshops</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard upgrades + rental compliance</li>
+            <li>School + community facility maintenance</li>
+            <li>Industrial machinery feeds</li>
+            <li>EV chargers for garages + carports</li>
           </ul>
         </div>
       </div>
@@ -119,5 +119,5 @@ const structuredData = [
   .pillList { list-style:none; display:flex; flex-wrap:wrap; gap:.6rem; padding:0; }
   .pillList li { padding:.4rem .9rem; border-radius:999px; background:rgba(0,0,0,.08); font-weight:600; }
   .faq details { border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:1rem; margin-bottom:1rem; }
-  .faq summary { cursor:pointer; font-weight:700; }
+  .faq summary { cursor: pointer; font-weight:700; }
 </style>

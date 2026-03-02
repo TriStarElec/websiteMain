@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Hillsborough",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "hillsborough",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/hillsborough",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Hillsborough sweeps from coastal cliff homes to family streets near the motorway. Electrical work often involves tricky access, multi-level layouts, and salt exposure. We plan each project so you stay comfortable: isolating only what’s needed, protecting finishes, and keeping neighbours informed. Our electricians upgrade switchboards before renovations, run power to granny flats, install EV chargers, and add lighting for gardens overlooking the Manukau Harbour. When storms roll through, we can fault-find and document everything for insurance without delay.",
+  nearby: ["Onehunga", "Mt Roskill", "Lynfield", "Blockhouse Bay", "Royal Oak"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Do you handle coastal corrosion issues?",
+      a: "Yes. We specify marine-rated fittings, gel terminations, and scheduled maintenance to keep circuits reliable.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "What about limited parking on steep drives?",
+      a: "We plan access in advance, bring compact gear, and stage materials so we’re not blocking neighbours.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "Can you run power to secondary dwellings?",
+      a: "We design compliant submains, install RCD protection, and issue certificates for council.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Hillsborough electricians for cliff homes and family streets — corrosion proofing, EV chargers, and tidy upgrades.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Central South • Coastal Ridges</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard + surge upgrades for renovations</li>
+            <li>Outdoor + landscape lighting on cliff sections</li>
+            <li>EV charger installs with load management</li>
+            <li>Minor dwelling submains + certification</li>
           </ul>
         </div>
       </div>

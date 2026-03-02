@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "St Heliers",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "st-heliers",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/st-heliers",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "St Heliers combines cliff-side architecturals with original bungalows near the waterfront. Salt air, steep driveways, and premium finishes mean every electrical job needs planning and protection. We coordinate with builders and landscapers on Tamaki Drive rebuilds, run new mains for basement gyms, and keep beach road hospitality humming with tidy maintenance. When you call, we ask for access notes, photos, and timelines so we can turn up with exactly what’s required. Expect respectful tradespeople, daily updates, and detailed certification ready for council or insurers. Whether you’re adding pool lighting above Ladies Bay or upgrading a kitchen along Maskell Street, we keep the job clean, documented, and on time.",
+  nearby: ["Mission Bay", "Glendowie", "Kohimarama", "Orakei", "St Johns"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Do you help manage salt air corrosion?",
+      a: "Yes. We favour marine-rated fittings, gel connectors, and periodic checks so outdoor equipment lasts along Tamaki Drive.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Can you coordinate with pool installers?",
+      a: "We stage conduits, bonding, and switchboard upgrades around pool builders so commissioning happens once.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What’s the lead time for St Heliers jobs?",
+      a: "Standard bookings are 1–2 weeks out, but urgent outages or settlement-critical repairs are slotted sooner where possible.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Electrical specialists for St Heliers villas and new builds — neat installs, coastal protection, and proactive communication.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Eastern Bays • Residential Experts</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard upgrades before interior renovations</li>
+            <li>Landscape + pool lighting for coastal properties</li>
+            <li>Dedicated circuits for gyms, saunas, and EVs</li>
+            <li>Fault finding when salt causes nuisance tripping</li>
           </ul>
         </div>
       </div>

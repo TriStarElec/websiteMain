@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Balmoral",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "balmoral",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/balmoral",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Balmoral combines bungalow-lined streets with some of Auckland’s busiest food spots. We keep both running smoothly: respectful rewires for family homes, fast kitchen call-outs for Dominion Road eateries, and tidy upgrades for new infill builds. Because parking gets tight, we arrive early, keep gear slim, and coordinate with neighbours if we need driveway access. Expect clean workmanship, labelled switchboards, and post-job reports you can forward to landlords or insurers without a chase-up. Whether you’re planning a renovation, need an EV charger, or just want a nuisance breaker sorted before service, we’ve got a crew nearby.",
+  nearby: ["Mt Eden", "Sandringham", "Three Kings", "Mt Roskill", "Epsom"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Can you work outside restaurant hours?",
+      a: "Yes. We book early morning or post-midnight slots so kitchens can keep trading.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Do you support landlords with Healthy Homes?",
+      a: "We document faults with photos, quote remedial work, and provide certificates for your records.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What about EV chargers on narrow sections?",
+      a: "We design load-managed installs and keep cabling neat so parking access isn’t blocked.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Balmoral electricians for homes and hospitality — neat upgrades, fast call-outs, and compliance-ready reporting.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Inner West • Homes & Food Mile</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard upgrades before villa renovations</li>
+            <li>Outdoor + courtyard lighting for entertaining</li>
+            <li>EV charger installs with smart load control</li>
+            <li>Emergency kitchen + retail repairs</li>
           </ul>
         </div>
       </div>

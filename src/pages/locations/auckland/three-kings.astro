@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Three Kings",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "three-kings",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/three-kings",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Three Kings homes span 1940s state houses, new terraced developments, and refreshed family bungalows. Electrical upgrades often mean adding capacity for heat pumps, EV chargers, or granny-flat submains. We stage the work so households keep running — isolating only what’s needed, protecting floors, and cleaning up daily. When developments pop up around Mt Eden Road we coordinate with builders, deliver clear QA photos, and keep council inspectors happy with tidy switchboards. Need a fast response for a rental or a retail strip on Mt Albert Road? We keep spare parts ready and aim for same-week attendance where possible.",
+  nearby: ["Mt Eden", "Balmoral", "Hillsborough", "Royal Oak", "Sandringham"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Do you install EV chargers for terraced homes?",
+      a: "Yes. We assess supply, add load control, and route cabling without blocking shared garages.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Can you run power to minor dwellings?",
+      a: "We design submains, install protection, and provide compliance certificates for council.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What about quick-response repairs?",
+      a: "We prioritise urgent faults for rentals and small businesses, carrying common parts so we can fix issues in one visit.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Three Kings electricians for family homes and new developments — EV-ready switchboards, tidy upgrades, and quick call-outs.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Central South • Family Homes</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard upgrades for additions</li>
+            <li>Submains for granny flats + studios</li>
+            <li>EV charger installs with load management</li>
+            <li>Retail + rental maintenance along Mt Albert Rd</li>
           </ul>
         </div>
       </div>
@@ -119,5 +119,5 @@ const structuredData = [
   .pillList { list-style:none; display:flex; flex-wrap:wrap; gap:.6rem; padding:0; }
   .pillList li { padding:.4rem .9rem; border-radius:999px; background:rgba(0,0,0,.08); font-weight:600; }
   .faq details { border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:1rem; margin-bottom:1rem; }
-  .faq summary { cursor:pointer; font-weight:700; }
+  .faq summary { cursor: pointer; font-weight:700; }
 </style>

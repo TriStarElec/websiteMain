@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Morningside",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "morningside",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/morningside",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Morningside is a pocket of warehouses turned studios, apartments above breweries, and villas tucked just off the train line. Electrical work has to be nimble: outages must be short, containment tidy, and noise minimal. We upgrade switchboards for creative workspaces, install lighting for event venues, and sort power issues for the new hospitality strip. For residents we plan rewires so you can keep living on-site, coordinate EV chargers for tandem parking, and respond fast when a breaker trips during remote work. Clear communication, respectful trades, and thorough documentation come standard.",
+  nearby: ["Kingsland", "Point Chevalier", "Eden Terrace", "Grey Lynn", "Mt Albert"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Do you work around broadcast or recording schedules?",
+      a: "Yes. We book quiet windows, isolate only what’s needed, and keep clients informed minute-by-minute.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Can you help with warehouse-to-studio conversions?",
+      a: "We design lighting, power, and data layouts, and coordinate with council inspections for change-of-use.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What about after-hours call-outs?",
+      a: "We keep emergency slots for hospitality and events so downtime stays short.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Morningside electricians for studios, hospitality, and villas — agile scheduling, neat installs, and full certification.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Inner West • Studios & Hospitality</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Warehouse-to-studio electrical fit-outs</li>
+            <li>Lighting + power tweaks for venues</li>
+            <li>EV-ready switchboard upgrades</li>
+            <li>Emergency repairs for hospitality</li>
           </ul>
         </div>
       </div>

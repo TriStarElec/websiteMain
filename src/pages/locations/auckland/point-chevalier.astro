@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Point Chevalier",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "point-chevalier",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/point-chevalier",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Point Chevalier homeowners expect tidy trades who understand coastal conditions. We keep villas near Coyle Park, family homes around Meola Road, and new builds along the peninsula all running smoothly. Salt air, tight streets, and shared driveways mean planning matters — we route cable neatly, specify marine-grade fittings, and clean up before we leave. Our electricians install EV chargers on sloped driveways, add pool and spa power, and upgrade switchboards before renovations. When storms hit, we respond quickly to nuisance tripping and corroded outlets so your home is back online fast.",
+  nearby: ["Westmere", "Herne Bay", "Avondale", "Waterview", "Morningside"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Do you protect installs from salt air?",
+      a: "Yes. We use marine-rated fittings, seal penetrations, and schedule maintenance where needed.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Can you work with landscapers on waterfront sections?",
+      a: "We coordinate trenching, lighting, and pump feeds so everything is installed before decking or concrete goes down.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "How fast can you attend an outage?",
+      a: "Send switchboard photos — we hold priority slots for Point Chev and usually attend within 24–48 hours for urgent fixes.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Point Chevalier electricians for coastal villas and new builds — corrosion-proof installs, EV chargers, and rapid call-outs.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Inner West • Coastal Homes</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard + mains upgrades before renovations</li>
+            <li>Pool, spa, and outdoor lighting installs</li>
+            <li>EV chargers with load management</li>
+            <li>Salt-related fault diagnosis</li>
           </ul>
         </div>
       </div>

@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Kohimarama",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "kohimarama",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/kohimarama",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Kohimarama clients expect quiet trades, spotless finishes, and paperwork sorted without needing to chase. We deliver exactly that — from classic brick homes near Madills Farm to statement rebuilds on Allum Street. Before we arrive, we confirm access, organise scaffolds, and pre-order switchgear so outages are short. Our electricians protect timber floors, bag dust, and photograph everything behind walls for future reference. Whether we’re wiring a new scullery, balancing EV chargers, or fixing nuisance tripping caused by coastal moisture, you get frequent updates plus compliance certificates you can forward to council or insurers. We understand school pick-up traffic and plan around it so our vans aren’t blocking your driveway.",
+  nearby: ["Mission Bay", "St Heliers", "Orakei", "Glendowie", "Meadowbank"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Can you work while we’re overseas?",
+      a: "Yes. We can liaise with property managers, send daily site photos, and secure the home when we leave.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Do you handle landscape lighting along the waterfront?",
+      a: "We design and install low-glare lighting with marine-rated fittings that survive the salt air.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What about EV chargers in tandem garages?",
+      a: "We route cabling neatly, add load management, and keep clearance so both vehicles still fit.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Kohimarama electricians delivering pristine installs, coastal protection, and proactive communication for premium homes.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Eastern Bays • Residential Focus</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard upgrades ahead of kitchen refits</li>
+            <li>Outdoor lighting + audio for entertaining decks</li>
+            <li>Home office circuits with surge protection</li>
+            <li>EV charger installs with smart load control</li>
           </ul>
         </div>
       </div>

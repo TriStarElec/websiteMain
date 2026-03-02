@@ -2,32 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const suburb = {
-  name: "Onehunga",
+  name: "Waterview",
   city: "Auckland",
-  slug: "onehunga",
-  canonical: "https://tristarelectrical.co.nz/locations/auckland/onehunga",
+  slug: "waterview",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/waterview",
   heroImage: "/images/heroes/residential-hero.jpg",
   intro:
-    "Onehunga is industrial at the edges and family-friendly in the middle, so our work ranges from factory call-outs to villa rewires. We fix tripping circuits in character homes, install power for new workshops along Neilson Street, and add EV chargers or spa circuits for lifestyle upgrades. Because access can be tight on older sections, we confirm parking, bring compact gear, and stage the work so your place stays habitable. Every job finishes with clear documentation and photos so you can prove compliance for council, landlords, or insurance. We also respond quickly when small businesses need their eftpos or ovens back online.",
-  nearby: ["Royal Oak", "Hillsborough", "Mangere Bridge", "One Tree Hill", "Mt Wellington"],
+    "Waterview squeezes between the motorway and the harbour, so electrical work needs planning and tidy execution. We handle villas near the peninsula, townhouses beside the shared path, and the small industrial pockets nearby. Our electricians coordinate with builders when the Waterview shared path needs to stay clear, protect your home while we work, and keep you updated at every step. We install EV chargers, outdoor lighting, and new mains for renovations, plus respond quickly when damp crawl spaces cause nuisance tripping. All documentation arrives digitally so you can forward it to council or insurers straight away.",
+  nearby: ["Avondale", "Point Chevalier", "Mt Albert", "New Windsor", "New Lynn"],
   faqs: [
     {
-      q: "Do you service industrial sites near the port?",
-      a: "Yes. We handle distribution, machine installs, and urgent repairs for workshops around Neilson Street.",
+      q: "Can you work around the shared path / limited parking?",
+      a: "Yes. We plan access in advance, use compact setups, and keep the path clear for commuters.",
     },
     {
-      q: "Can you help with villa rewires?",
-      a: "We stage the job, protect linings, and coordinate with plasterers so the home stays livable.",
+      q: "Do you handle moisture-related faults?",
+      a: "We inspect crawl spaces, replace corroded fittings, and seal penetrations to keep circuits stable.",
     },
     {
-      q: "What about small business maintenance?",
-      a: "We keep spares in the van for lighting, sockets, and kitchen gear so cafes and retailers can get back to trading quickly.",
+      q: "What about EV chargers for townhouses?",
+      a: "We add load control, route conduit neatly, and keep shared driveways accessible.",
     },
   ],
 };
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
-const description = "Onehunga electricians for villas, workshops, and retail — fast diagnostics, respectful trades, and thorough paperwork.";
+const description = "Waterview electricians for villas and townhouses — careful planning, moisture-safe installs, and fast documentation.";
 
 const structuredData = [
   {
@@ -56,7 +56,7 @@ const structuredData = [
     <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
       <div class="scrim"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Central South • Industrial + Residential</p>
+        <p class="eyebrow">Inner West • Harbour Fringe</p>
         <h1>Electrician {suburb.name}</h1>
         <p>{suburb.intro}</p>
         <div class="ctaRow">
@@ -79,10 +79,10 @@ const structuredData = [
         <div>
           <h2>Popular call-outs</h2>
           <ul>
-            <li>Switchboard upgrades for villas + duplexes</li>
-            <li>Workshop/factory power + lighting</li>
-            <li>EV chargers + spa circuits for homes</li>
-            <li>Retail + hospitality maintenance</li>
+            <li>Switchboard upgrades before renovations</li>
+            <li>Outdoor lighting + spa circuits</li>
+            <li>EV charger installs for tight garages</li>
+            <li>Moisture + crawl-space fault repairs</li>
           </ul>
         </div>
       </div>
