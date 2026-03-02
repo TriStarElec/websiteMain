@@ -8,7 +8,7 @@ const suburb = {
   canonical: "https://tristarelectrical.co.nz/locations/auckland/new-lynn",
   heroImage: "/images/locations/new-lynn-hero.jpg",
   intro:
-    "New Lynn mixes apartments around the transport hub, 1950s weatherboards, and light industrial blocks. We support them all: wiring new fit-outs at LynnMall, upgrading switchboards before home renovations, and handling urgent repairs for workshops along Portage Road. Because parking is hectic near the station, we plan access, bring the gear we need on the first visit, and keep communication tight if timings shift. Expect tidy installs, labelled circuits, and compliance docs delivered digitally the same day. We also install EV chargers, garden lighting, and power for home studios so properties stay future-proof.",
+    "New Lynn mixes apartments around the transport hub, 1950s weatherboards, and light industrial blocks. We support them all: wiring new fit-outs at LynnMall, upgrading switchboards before home renovations, and handling urgent repairs for workshops along Portage Road. Because parking is hectic near the station, we plan access, bring the gear we need on the first visit, and keep communication tight if timings shift. Expect tidy installs, labelled circuits, and compliance docs delivered digitally the same day.",
   nearby: ["Avondale", "Kelston", "Blockhouse Bay", "Titirangi", "Glen Eden"],
   faqs: [
     {
@@ -65,19 +65,40 @@ const highlightServices = [
 
 const quickStats = [
   { label: "Avg lead time", value: "2.1 days", note: "for urgent New Lynn call-outs" },
-  { label: "EV-ready installs", value: "32", note: "chargers fitted across Lynmall precinct" },
-  { label: "After-hours jobs", value: "18", note: "retail & hospitality in the last quarter" },
+  { label: "EV-ready installs", value: "32", note: "chargers fitted across LynnMall precinct" },
+  { label: "After-hours jobs", value: "18", note: "retail & hospitality last quarter" },
 ];
 
 const nearbyDetails = [
-  { name: "Avondale", desc: "Light industry + new apartments — ideal for cross-link servicing." },
-  { name: "Kelston", desc: "Schools and workshops needing planned maintenance." },
-  { name: "Blockhouse Bay", desc: "Coastal homes that need corrosion-safe outdoor power." },
-  { name: "Titirangi", desc: "Bush properties with complex access and smart lighting." },
-  { name: "Glen Eden", desc: "Rail-side villas and small industrial spaces." },
+  { name: "Avondale", slug: "avondale", desc: "Light industry + new apartments" },
+  { name: "Kelston", slug: "kelston", desc: "Schools and workshops" },
+  { name: "Blockhouse Bay", slug: "blockhouse-bay", desc: "Coastal homes" },
+  { name: "Titirangi", slug: "titirangi", desc: "Bush properties" },
+  { name: "Glen Eden", slug: "glen-eden", desc: "Rail-side villas" },
 ];
 
-const mapEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31118.027922159894!2d174.662!3d-36.911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d48ca42f6c9a7%3A0x500ef6143a2e580!2sNew%20Lynn%2C%20Auckland!5e0!3m2!1sen!2snz!4v1730226400000";
+const styleDirections = [
+  {
+    name: "Onyx Glass",
+    palette: ["#05060a", "#1b1f2f", "#f7f3ed"],
+    vibe: "High-gloss black glass, blurred layers, brass micro-accents.",
+    usage: "Pair with strong photography + pill buttons.",
+  },
+  {
+    name: "Porcelain Contrast",
+    palette: ["#f9f6f0", "#1f1f1f", "#c3a574"],
+    vibe: "Soft off-white base, serif headlines, thin black rules.",
+    usage: "Great for heavy copy + elegant iconography.",
+  },
+  {
+    name: "Midnight Brass",
+    palette: ["#0b0f14", "#2d3139", "#d6b370"],
+    vibe: "Deep blue-black gradient, subtle brass dividers, structured layout.",
+    usage: "Use when we want more dramatic lighting cues.",
+  },
+];
+
+const mapEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24885.833348771032!2d174.6606!3d-36.9084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d48ca42f6c9a7%3A0x500ef6143a2e580!2sNew%20Lynn%2C%20Auckland%200600!5e0!3m2!1sen!2snz!4v1730226400000";
 
 const title = `Electrician ${suburb.name} — Tri Star Electrical`;
 const description = "New Lynn electricians for homes, apartments, and industrial — agile scheduling, neat installs, and compliance-ready reporting.";
@@ -115,13 +136,12 @@ const structuredData = [
           <p class="heroCopy">{suburb.intro}</p>
           <div class="ctaRow">
             <a class="btn" href="/contact#form">Request a quote</a>
-            <a class="btn btn--ghost" href="/services">View services</a>
           </div>
         </div>
       </div>
     </header>
 
-    <section class="section localProof">
+    <section class="section localProof is-hidden">
       <div class="card recentWork">
         <h2>Recent work in {suburb.name}</h2>
         <ul>
@@ -145,7 +165,7 @@ const structuredData = [
 
     <section class="section serviceHighlights">
       <h2>What we’re called for most</h2>
-      <div class="serviceGrid">
+      <div class="serviceGrid premium">
         {highlightServices.map((service) => (
           <article class="serviceCard">
             <h3>{service.title}</h3>
@@ -166,16 +186,15 @@ const structuredData = [
     </section>
 
     <section class="section areaAndMap">
-      <div class="areaGrid">
-        <h2>Nearby areas served</h2>
-        <div class="areaCards">
+      <div>
+        <h2>Nearby areas serviced</h2>
+        <ul class="nearbyList">
           {nearbyDetails.map((area) => (
-            <article>
-              <strong>{area.name}</strong>
-              <p>{area.desc}</p>
-            </article>
+            <li>
+              <a href={`/locations/auckland/${area.slug}`}>Electrician {area.name}</a>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
       <div class="mapCard">
         <h3>Where we work</h3>
@@ -196,8 +215,27 @@ const structuredData = [
         </div>
         <div class="ctaRow">
           <a class="btn" href="/contact#form">Book now</a>
-          <a class="btn btn--ghost" href="mailto:jake@tristarelectrical.co.nz">Email the details</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section styleShowcase">
+      <h2>Visual directions to evaluate</h2>
+      <div class="styleGrid">
+        {styleDirections.map((style) => (
+          <article>
+            <div class="styleHeader">
+              <h3>{style.name}</h3>
+              <p>{style.vibe}</p>
+            </div>
+            <div class="swatches">
+              {style.palette.map((color) => (
+                <span style={`--swatch-color:${color}`}></span>
+              ))}
+            </div>
+            <p class="styleUsage">{style.usage}</p>
+          </article>
+        ))}
       </div>
     </section>
 
@@ -217,77 +255,102 @@ const structuredData = [
 
 <style>
   @import "../../../styles/pages.css";
-  .location { background:#fff; color:#111; }
-  .hero { position:relative; padding:4rem 0; background-size:cover; background-position:center; }
-  .scrim { position:absolute; inset:0; background:rgba(0,0,0,.4); backdrop-filter: blur(2px); }
+
+  .location { background:#f8f7f4; color:#0c0d0f; }
+  .hero { position:relative; padding:4.5rem 0; background-size:cover; background-position:center; }
+  .scrim { position:absolute; inset:0; background:linear-gradient(120deg,rgba(1,3,6,.85),rgba(3,7,14,.35)); backdrop-filter: blur(2px); }
   .hero__inner { position:relative; width:min(1100px,90%); margin:0 auto; display:flex; justify-content:flex-start; }
   .heroCard {
-    background: rgba(255,255,255,.14);
-    border: 1px solid rgba(255,255,255,.3);
-    border-radius: 28px;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: rgba(7,10,18,.55);
+    border: 1px solid rgba(255,255,255,.24);
+    border-radius: 32px;
+    padding: clamp(1.75rem, 3vw, 2.75rem);
     color: #fff;
-    backdrop-filter: blur(18px);
-    box-shadow: 0 25px 60px rgba(0,0,0,.25);
-    max-width: 720px;
+    backdrop-filter: blur(22px);
+    box-shadow: 0 25px 70px rgba(0,0,0,.35);
+    max-width: 760px;
   }
-  .heroCard .eyebrow { color: rgba(255,255,255,.8); }
-  .heroCopy { font-size: 1.05rem; line-height: 1.65; color: rgba(255,255,255,.92); }
-  .btn { padding:.85rem 1.4rem; border-radius:999px; border:1px solid currentColor; background:#fff; color:#000; font-weight:700; text-decoration:none; }
-  .btn--ghost { background:transparent; color:#fff; border-color:#fff; }
+  .heroCard .eyebrow { color: rgba(255,255,255,.78); letter-spacing:.25em; }
+  .heroCard h1 { font-size: clamp(2.5rem,5vw,3.6rem); margin:0 0 1rem; }
+  .heroCopy { font-size: 1.08rem; line-height: 1.75; color: rgba(255,255,255,.9); margin:0 0 1.25rem; }
+  .btn {
+    padding:.9rem 1.6rem;
+    border-radius:999px;
+    border:1px solid transparent;
+    background:#f5f1e7;
+    color:#0b0d12;
+    font-weight:700;
+    text-decoration:none;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
 
-  .localProof { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
-  .card {
-    border:1px solid rgba(0,0,0,.06);
-    border-radius:24px;
-    padding:1.5rem;
-    background:#fff;
-    box-shadow:0 20px 60px rgba(0,0,0,.06);
-  }
-  .recentWork ul { list-style:none; padding:0; margin:0; display:grid; gap:1rem; }
-  .recentWork li strong { font-size:1.05rem; display:block; margin-bottom:.35rem; }
-  .recentWork li span { font-size:.9rem; color:rgba(0,0,0,.6); }
-  .testimonial blockquote { margin:0 0 1rem; font-size:1.05rem; line-height:1.7; font-style:italic; }
-  .testimonial .cite { font-size:.9rem; color:rgba(0,0,0,.65); }
+  .is-hidden { display:none !important; }
 
   .serviceHighlights { text-align:center; }
-  .serviceGrid { margin-top:1.5rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
-  .serviceCard { border:1px solid rgba(0,0,0,.08); border-radius:20px; padding:1.25rem; text-align:left; background:#fafafa; }
+  .serviceGrid.premium { margin-top:1.5rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.2rem; }
+  .serviceCard {
+    border:1px solid rgba(15,18,30,.08);
+    border-radius:26px;
+    padding:1.4rem;
+    text-align:left;
+    background:#fff;
+    box-shadow:0 25px 50px rgba(4,6,9,.08);
+  }
 
   .statsBand {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:1rem;
-    background:linear-gradient(120deg,#111,#333);
+    background:linear-gradient(120deg,#050709,#1a1f2c);
     color:#fff;
-    border-radius:28px;
-    padding:1.8rem;
-    margin-top:1rem;
+    border-radius:32px;
+    padding:2rem;
   }
-  .statValue { font-size:1.8rem; font-weight:700; margin:0; }
-  .statLabel { margin:.2rem 0; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; }
-  .statNote { margin:0; color:rgba(255,255,255,.75); font-size:.95rem; }
+  .statValue { font-size:2rem; font-weight:700; margin:0; }
+  .statLabel { margin:.2rem 0; letter-spacing:.1em; text-transform:uppercase; font-size:.85rem; }
+  .statNote { margin:0; color:rgba(255,255,255,.78); }
 
-  .areaAndMap { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
-  .areaCards { display:grid; gap:1rem; }
-  .areaCards article { border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:1rem; background:#fff; }
-  .mapCard { border:1px solid rgba(0,0,0,.1); border-radius:24px; overflow:hidden; background:#fff; box-shadow:0 10px 30px rgba(0,0,0,.08); }
-  .mapCard iframe { width:100%; height:320px; border:0; }
+  .areaAndMap { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem; }
+  .nearbyList { list-style:disc; padding-left:1.25rem; display:flex; flex-direction:column; gap:.4rem; font-size:1.05rem; }
+  .nearbyList a { color:inherit; text-decoration:none; border-bottom:1px solid rgba(15,18,30,.15); padding-bottom:.2rem; }
+  .mapCard { border:1px solid rgba(0,0,0,.12); border-radius:28px; overflow:hidden; background:#fff; box-shadow:0 18px 45px rgba(0,0,0,.1); padding:1rem; }
+  .mapCard iframe { width:100%; height:320px; border:0; border-radius:18px; }
 
   .ctaBand { padding:0; }
   .ctaInner {
-    border-radius:28px;
+    border-radius:32px;
     border:1px solid rgba(0,0,0,.08);
-    background:linear-gradient(110deg,#111,#2c2c2c);
+    background:linear-gradient(120deg,#08090d,#1c2130);
     color:#fff;
     padding:2rem;
     display:flex;
     flex-direction:column;
     gap:1rem;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
   }
-  .ctaInner p { color:rgba(255,255,255,.8); }
-  .ctaInner .btn { background:#fff; color:#000; }
+  .ctaInner p { color:rgba(255,255,255,.78); }
 
-  .faq details { border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+  .styleShowcase { text-align:center; }
+  .styleGrid { margin-top:1.5rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+  .styleGrid article {
+    border:1px solid rgba(15,18,30,.1);
+    border-radius:28px;
+    padding:1.2rem;
+    background:#fff;
+    box-shadow:0 20px 40px rgba(12,13,15,.08);
+  }
+  .styleHeader h3 { margin:.2rem 0; font-size:1.2rem; }
+  .styleHeader p { margin:0; color:rgba(12,13,15,.65); font-size:.95rem; }
+  .swatches { display:flex; gap:.45rem; margin:1rem 0; }
+  .swatches span {
+    width:40px; height:40px;
+    border-radius:50%;
+    border:1px solid rgba(0,0,0,.1);
+    background:var(--swatch-color);
+  }
+  .styleUsage { margin:0; font-size:.95rem; color:rgba(12,13,15,.7); }
+
+  .faq details { border:1px solid rgba(0,0,0,.12); border-radius:16px; padding:1rem; margin-bottom:1rem; background:#fff; }
   .faq summary { cursor:pointer; font-weight:700; }
 </style>
