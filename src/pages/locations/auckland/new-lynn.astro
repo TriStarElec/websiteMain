@@ -263,7 +263,7 @@ const structuredData = [
   .heroCard {
     background: rgba(7,10,18,.55);
     border: 1px solid rgba(255,255,255,.24);
-    border-radius: 32px;
+    border-radius: 0;
     padding: clamp(1.75rem, 3vw, 2.75rem);
     color: #fff;
     backdrop-filter: blur(22px);
@@ -290,8 +290,8 @@ const structuredData = [
   .serviceHighlights { text-align:center; }
   .serviceGrid.premium { margin-top:1.5rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.2rem; }
   .serviceCard {
-    border:1px solid rgba(15,18,30,.08);
-    border-radius:26px;
+    border:1px solid rgba(15,18,30,.2);
+    border-radius:0;
     padding:1.4rem;
     text-align:left;
     background:#fff;
@@ -304,8 +304,8 @@ const structuredData = [
     gap:1rem;
     background:linear-gradient(120deg,#050709,#1a1f2c);
     color:#fff;
-    border-radius:32px;
-    padding:2rem;
+    padding:2.2rem;
+    margin:3rem 0;
   }
   .statValue { font-size:2rem; font-weight:700; margin:0; }
   .statLabel { margin:.2rem 0; letter-spacing:.1em; text-transform:uppercase; font-size:.85rem; }
@@ -319,8 +319,9 @@ const structuredData = [
 
   .ctaBand { padding:0; }
   .ctaInner {
-    border-radius:32px;
-    border:1px solid rgba(0,0,0,.08);
+    border-radius:0;
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
     background:linear-gradient(120deg,#08090d,#1c2130);
     color:#fff;
     padding:2rem;
