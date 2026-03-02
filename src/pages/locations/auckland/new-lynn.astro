@@ -1,0 +1,293 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const suburb = {
+  name: "New Lynn",
+  city: "Auckland",
+  slug: "new-lynn",
+  canonical: "https://tristarelectrical.co.nz/locations/auckland/new-lynn",
+  heroImage: "/images/locations/new-lynn-hero.jpg",
+  intro:
+    "New Lynn mixes apartments around the transport hub, 1950s weatherboards, and light industrial blocks. We support them all: wiring new fit-outs at LynnMall, upgrading switchboards before home renovations, and handling urgent repairs for workshops along Portage Road. Because parking is hectic near the station, we plan access, bring the gear we need on the first visit, and keep communication tight if timings shift. Expect tidy installs, labelled circuits, and compliance docs delivered digitally the same day. We also install EV chargers, garden lighting, and power for home studios so properties stay future-proof.",
+  nearby: ["Avondale", "Kelston", "Blockhouse Bay", "Titirangi", "Glen Eden"],
+  faqs: [
+    {
+      q: "Do you work around train-station congestion?",
+      a: "Yes. We schedule arrivals off-peak, secure parking, and keep neighbours informed if we need driveway access.",
+    },
+    {
+      q: "Can you help with townhouse EV chargers?",
+      a: "We assess load, install tidy containment, and add smart control so shared supplies aren’t overloaded.",
+    },
+    {
+      q: "What about retail or hospitality call-outs?",
+      a: "We keep after-hours slots so shops and cafes can keep trading with minimal downtime.",
+    },
+  ],
+};
+
+const recentJobs = [
+  {
+    title: "LynnMall tenancy refresh",
+    details: "After-hours lighting + POS power upgrade with zero downtime for the retailer.",
+    meta: "2-night change-over • documentation delivered before re-opening",
+  },
+  {
+    title: "Portage Road workshop",
+    details: "New three-phase circuits, labelled distribution board, and preventative maintenance schedule.",
+    meta: "Industrial • compliant RAMS + photos for insurance",
+  },
+  {
+    title: "Totara Ave apartments",
+    details: "Load-balancing EV chargers and surge-protected switchboard upgrade for 12 townhouses.",
+    meta: "Residential body corporate • 4-day install",
+  },
+];
+
+const highlightServices = [
+  {
+    title: "Retail + hospitality",
+    copy: "After-hours repairs, new tenancies, and split-meter upgrades so stores keep trading on LynnMall’s timetable.",
+  },
+  {
+    title: "Townhouse + apartment upgrades",
+    copy: "EV chargers, shared switchboards, and smart load management for modern multi-dwelling sites.",
+  },
+  {
+    title: "Industrial call-outs",
+    copy: "Workshops on Portage Road rely on us for distribution, machine feeds, and preventative checks.",
+  },
+  {
+    title: "Home studios + cabins",
+    copy: "Compliant submains, RCD protection, and tidy data cabling for the growing number of home businesses.",
+  },
+];
+
+const quickStats = [
+  { label: "Avg lead time", value: "2.1 days", note: "for urgent New Lynn call-outs" },
+  { label: "EV-ready installs", value: "32", note: "chargers fitted across Lynmall precinct" },
+  { label: "After-hours jobs", value: "18", note: "retail & hospitality in the last quarter" },
+];
+
+const nearbyDetails = [
+  { name: "Avondale", desc: "Light industry + new apartments — ideal for cross-link servicing." },
+  { name: "Kelston", desc: "Schools and workshops needing planned maintenance." },
+  { name: "Blockhouse Bay", desc: "Coastal homes that need corrosion-safe outdoor power." },
+  { name: "Titirangi", desc: "Bush properties with complex access and smart lighting." },
+  { name: "Glen Eden", desc: "Rail-side villas and small industrial spaces." },
+];
+
+const mapEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31118.027922159894!2d174.662!3d-36.911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d48ca42f6c9a7%3A0x500ef6143a2e580!2sNew%20Lynn%2C%20Auckland!5e0!3m2!1sen!2snz!4v1730226400000";
+
+const title = `Electrician ${suburb.name} — Tri Star Electrical`;
+const description = "New Lynn electricians for homes, apartments, and industrial — agile scheduling, neat installs, and compliance-ready reporting.";
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://tristarelectrical.co.nz/" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://tristarelectrical.co.nz/locations" },
+      { "@type": "ListItem", position: 3, name: `Electrician ${suburb.name}`, item: suburb.canonical },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: suburb.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={suburb.canonical} structuredData={structuredData}>
+  <main class="location">
+    <header class="hero" style={`background-image:url(${suburb.heroImage})`}>
+      <div class="scrim"></div>
+      <div class="hero__inner">
+        <div class="heroCard">
+          <p class="eyebrow">West Auckland • Transport Hub</p>
+          <h1>Electrician {suburb.name}</h1>
+          <p class="heroCopy">{suburb.intro}</p>
+          <div class="ctaRow">
+            <a class="btn" href="/contact#form">Request a quote</a>
+            <a class="btn btn--ghost" href="/services">View services</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section localProof">
+      <div class="card recentWork">
+        <h2>Recent work in {suburb.name}</h2>
+        <ul>
+          {recentJobs.map((job) => (
+            <li>
+              <strong>{job.title}</strong>
+              <p>{job.details}</p>
+              <span>{job.meta}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="card testimonial">
+        <h3>What locals say</h3>
+        <blockquote>
+          “Tri Star handled our LynnMall shop refit overnight. Floor spotless the next morning and the paperwork was in my inbox by 7am.”
+        </blockquote>
+        <p class="cite">— Retail Manager, Totara Ave</p>
+      </div>
+    </section>
+
+    <section class="section serviceHighlights">
+      <h2>What we’re called for most</h2>
+      <div class="serviceGrid">
+        {highlightServices.map((service) => (
+          <article class="serviceCard">
+            <h3>{service.title}</h3>
+            <p>{service.copy}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section statsBand">
+      {quickStats.map((stat) => (
+        <div class="stat">
+          <p class="statValue">{stat.value}</p>
+          <p class="statLabel">{stat.label}</p>
+          <p class="statNote">{stat.note}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="section areaAndMap">
+      <div class="areaGrid">
+        <h2>Nearby areas served</h2>
+        <div class="areaCards">
+          {nearbyDetails.map((area) => (
+            <article>
+              <strong>{area.name}</strong>
+              <p>{area.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+      <div class="mapCard">
+        <h3>Where we work</h3>
+        <iframe
+          title="Map of New Lynn"
+          src={mapEmbed}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="section ctaBand">
+      <div class="ctaInner">
+        <div>
+          <h2>Need tidy electrical work in {suburb.name}?</h2>
+          <p>Share photos, plans, or access notes. We’ll confirm scope, timing, and price — usually within one business day.</p>
+        </div>
+        <div class="ctaRow">
+          <a class="btn" href="/contact#form">Book now</a>
+          <a class="btn btn--ghost" href="mailto:jake@tristarelectrical.co.nz">Email the details</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQs</h2>
+      <div class="faq">
+        {suburb.faqs.map((faq) => (
+          <details>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @import "../../styles/pages.css";
+  .location { background:#fff; color:#111; }
+  .hero { position:relative; padding:4rem 0; background-size:cover; background-position:center; }
+  .scrim { position:absolute; inset:0; background:rgba(0,0,0,.4); backdrop-filter: blur(2px); }
+  .hero__inner { position:relative; width:min(1100px,90%); margin:0 auto; display:flex; justify-content:flex-start; }
+  .heroCard {
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 28px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    color: #fff;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 25px 60px rgba(0,0,0,.25);
+    max-width: 720px;
+  }
+  .heroCard .eyebrow { color: rgba(255,255,255,.8); }
+  .heroCopy { font-size: 1.05rem; line-height: 1.65; color: rgba(255,255,255,.92); }
+  .btn { padding:.85rem 1.4rem; border-radius:999px; border:1px solid currentColor; background:#fff; color:#000; font-weight:700; text-decoration:none; }
+  .btn--ghost { background:transparent; color:#fff; border-color:#fff; }
+
+  .localProof { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+  .card {
+    border:1px solid rgba(0,0,0,.06);
+    border-radius:24px;
+    padding:1.5rem;
+    background:#fff;
+    box-shadow:0 20px 60px rgba(0,0,0,.06);
+  }
+  .recentWork ul { list-style:none; padding:0; margin:0; display:grid; gap:1rem; }
+  .recentWork li strong { font-size:1.05rem; display:block; margin-bottom:.35rem; }
+  .recentWork li span { font-size:.9rem; color:rgba(0,0,0,.6); }
+  .testimonial blockquote { margin:0 0 1rem; font-size:1.05rem; line-height:1.7; font-style:italic; }
+  .testimonial .cite { font-size:.9rem; color:rgba(0,0,0,.65); }
+
+  .serviceHighlights { text-align:center; }
+  .serviceGrid { margin-top:1.5rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+  .serviceCard { border:1px solid rgba(0,0,0,.08); border-radius:20px; padding:1.25rem; text-align:left; background:#fafafa; }
+
+  .statsBand {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:1rem;
+    background:linear-gradient(120deg,#111,#333);
+    color:#fff;
+    border-radius:28px;
+    padding:1.8rem;
+    margin-top:1rem;
+  }
+  .statValue { font-size:1.8rem; font-weight:700; margin:0; }
+  .statLabel { margin:.2rem 0; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; }
+  .statNote { margin:0; color:rgba(255,255,255,.75); font-size:.95rem; }
+
+  .areaAndMap { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+  .areaCards { display:grid; gap:1rem; }
+  .areaCards article { border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:1rem; background:#fff; }
+  .mapCard { border:1px solid rgba(0,0,0,.1); border-radius:24px; overflow:hidden; background:#fff; box-shadow:0 10px 30px rgba(0,0,0,.08); }
+  .mapCard iframe { width:100%; height:320px; border:0; }
+
+  .ctaBand { padding:0; }
+  .ctaInner {
+    border-radius:28px;
+    border:1px solid rgba(0,0,0,.08);
+    background:linear-gradient(110deg,#111,#2c2c2c);
+    color:#fff;
+    padding:2rem;
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+  }
+  .ctaInner p { color:rgba(255,255,255,.8); }
+  .ctaInner .btn { background:#fff; color:#000; }
+
+  .faq details { border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+  .faq summary { cursor:pointer; font-weight:700; }
+</style>
