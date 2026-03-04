@@ -63,39 +63,12 @@ const highlightServices = [
   },
 ];
 
-const quickStats = [
-  { label: "Avg lead time", value: "2.1 days", note: "for urgent New Lynn call-outs" },
-  { label: "EV-ready installs", value: "32", note: "chargers fitted across LynnMall precinct" },
-  { label: "After-hours jobs", value: "18", note: "retail & hospitality last quarter" },
-];
-
 const nearbyDetails = [
   { name: "Avondale", slug: "avondale", desc: "Light industry + new apartments" },
   { name: "Kelston", slug: "kelston", desc: "Schools and workshops" },
   { name: "Blockhouse Bay", slug: "blockhouse-bay", desc: "Coastal homes" },
   { name: "Titirangi", slug: "titirangi", desc: "Bush properties" },
   { name: "Glen Eden", slug: "glen-eden", desc: "Rail-side villas" },
-];
-
-const styleDirections = [
-  {
-    name: "Onyx Glass",
-    palette: ["#05060a", "#1b1f2f", "#f7f3ed"],
-    vibe: "High-gloss black glass, blurred layers, brass micro-accents.",
-    usage: "Pair with strong photography + pill buttons.",
-  },
-  {
-    name: "Porcelain Contrast",
-    palette: ["#f9f6f0", "#1f1f1f", "#c3a574"],
-    vibe: "Soft off-white base, serif headlines, thin black rules.",
-    usage: "Great for heavy copy + elegant iconography.",
-  },
-  {
-    name: "Midnight Brass",
-    palette: ["#0b0f14", "#2d3139", "#d6b370"],
-    vibe: "Deep blue-black gradient, subtle brass dividers, structured layout.",
-    usage: "Use when we want more dramatic lighting cues.",
-  },
 ];
 
 const mapEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24885.833348771032!2d174.6606!3d-36.9084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d48ca42f6c9a7%3A0x500ef6143a2e580!2sNew%20Lynn%2C%20Auckland%200600!5e0!3m2!1sen!2snz!4v1730226400000";
@@ -175,15 +148,6 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="section statsBand">
-      {quickStats.map((stat) => (
-        <div class="stat">
-          <p class="statValue">{stat.value}</p>
-          <p class="statLabel">{stat.label}</p>
-          <p class="statNote">{stat.note}</p>
-        </div>
-      ))}
-    </section>
 
     <section class="section areaAndMap">
       <div>
@@ -219,25 +183,6 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="section styleShowcase">
-      <h2>Visual directions to evaluate</h2>
-      <div class="styleGrid">
-        {styleDirections.map((style) => (
-          <article>
-            <div class="styleHeader">
-              <h3>{style.name}</h3>
-              <p>{style.vibe}</p>
-            </div>
-            <div class="swatches">
-              {style.palette.map((color) => (
-                <span style={`--swatch-color:${color}`}></span>
-              ))}
-            </div>
-            <p class="styleUsage">{style.usage}</p>
-          </article>
-        ))}
-      </div>
-    </section>
 
     <section class="section">
       <h2>FAQs</h2>
@@ -287,8 +232,8 @@ const structuredData = [
 
   .is-hidden { display:none !important; }
 
-  .serviceHighlights { text-align:center; }
-  .serviceGrid.premium { margin-top:1.5rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.2rem; }
+  .section { text-align:center; }
+  .serviceGrid.premium { margin:0 auto; margin-top:1.5rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.2rem; }
   .serviceCard {
     border:1px solid rgba(15,18,30,.2);
     border-radius:0;
@@ -298,21 +243,9 @@ const structuredData = [
     box-shadow:0 25px 50px rgba(4,6,9,.08);
   }
 
-  .statsBand {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:1rem;
-    background:linear-gradient(120deg,#050709,#1a1f2c);
-    color:#fff;
-    padding:2.2rem;
-    margin:3rem 0;
-  }
-  .statValue { font-size:2rem; font-weight:700; margin:0; }
-  .statLabel { margin:.2rem 0; letter-spacing:.1em; text-transform:uppercase; font-size:.85rem; }
-  .statNote { margin:0; color:rgba(255,255,255,.78); }
 
   .areaAndMap { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem; }
-  .nearbyList { list-style:disc; padding-left:1.25rem; display:flex; flex-direction:column; gap:.4rem; font-size:1.05rem; }
+  .nearbyList { list-style:disc; padding-left:1.5rem; display:inline-block; text-align:left; font-size:1.05rem; }
   .nearbyList a { color:inherit; text-decoration:none; border-bottom:1px solid rgba(15,18,30,.15); padding-bottom:.2rem; }
   .mapCard { border:1px solid rgba(0,0,0,.12); border-radius:28px; overflow:hidden; background:#fff; box-shadow:0 18px 45px rgba(0,0,0,.1); padding:1rem; }
   .mapCard iframe { width:100%; height:320px; border:0; border-radius:18px; }
@@ -332,25 +265,6 @@ const structuredData = [
   }
   .ctaInner p { color:rgba(255,255,255,.78); }
 
-  .styleShowcase { text-align:center; }
-  .styleGrid { margin-top:1.5rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
-  .styleGrid article {
-    border:1px solid rgba(15,18,30,.1);
-    border-radius:28px;
-    padding:1.2rem;
-    background:#fff;
-    box-shadow:0 20px 40px rgba(12,13,15,.08);
-  }
-  .styleHeader h3 { margin:.2rem 0; font-size:1.2rem; }
-  .styleHeader p { margin:0; color:rgba(12,13,15,.65); font-size:.95rem; }
-  .swatches { display:flex; gap:.45rem; margin:1rem 0; }
-  .swatches span {
-    width:40px; height:40px;
-    border-radius:50%;
-    border:1px solid rgba(0,0,0,.1);
-    background:var(--swatch-color);
-  }
-  .styleUsage { margin:0; font-size:.95rem; color:rgba(12,13,15,.7); }
 
   .faq details { border:1px solid rgba(0,0,0,.12); border-radius:16px; padding:1rem; margin-bottom:1rem; background:#fff; }
   .faq summary { cursor:pointer; font-weight:700; }
