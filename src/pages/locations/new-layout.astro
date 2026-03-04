@@ -1,0 +1,184 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const page = {
+  title: "Tri Star Electrical — Precision Layout",
+  description:
+    "A premium electrical landing layout built for bold statements, sharp typography, and high contrast imagery.",
+  heroImage: "/images/locations/new-lynn-hero.jpg",
+  heroKicker: "Premium electrical craftsmanship",
+  heroHeading: "Clean power, flawless delivery",
+  heroCopy:
+    "Layout B explores a full-width split hero, overlaid stat rails, and darker surfaces pulled right to the viewport edge.",
+  highlights: [
+    { label: "02 hr", detail: "Average response window" },
+    { label: "100%", detail: "Documented sign-offs" },
+    { label: "+18", detail: "Dedicated trade partners" },
+  ],
+  pillars: [
+    {
+      name: "Situational hero",
+      copy:
+        "Full-bleed image with translucent overlay and vertically stacked CTA rail. Works with any moody photography.",
+    },
+    {
+      name: "Process ribbon",
+      copy:
+        "Horizontal steps tied together with brass ticks, designed for 3–5 milestones with optional icons.",
+    },
+    {
+      name: "Showcase grid",
+      copy:
+        "Staggered cards mixing copy and imagery. Each card gets a subtle divider and microcopy line.",
+    },
+  ],
+  process: [
+    {
+      step: "01",
+      title: "Scoping",
+      detail: "Brief intake, access planning, and document collation in 24 hours.",
+    },
+    {
+      step: "02",
+      title: "Execution",
+      detail: "On-site lead with live photo log, glassmorphic status cards, and evening summaries.",
+    },
+    {
+      step: "03",
+      title: "Handover",
+      detail: "Deliverables bundle, cloud archive, and optional performance review meeting.",
+    },
+  ],
+};
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <main class="newLayout">
+    <section class="splash">
+      <div class="splash__image" style={`background-image:url(${page.heroImage})`}></div>
+      <div class="splash__overlay"></div>
+      <div class="splash__content">
+        <img src="/images/logo/g16.png" alt="Tri Star Electrical" class="brandMark" />
+        <p class="kicker">{page.heroKicker}</p>
+        <h1>{page.heroHeading}</h1>
+        <p class="lead">{page.heroCopy}</p>
+        <div class="ctaRail">
+          <a class="btn btn--primary" href="/contact#form">Book discovery</a>
+          <a class="btn btn--ghost" href="/services">See capability</a>
+        </div>
+        <div class="statsRail">
+          {page.highlights.map((highlight) => (
+            <article>
+              <strong>{highlight.label}</strong>
+              <span>{highlight.detail}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars">
+      {page.pillars.map((pillar) => (
+        <article>
+          <h2>{pillar.name}</h2>
+          <p>{pillar.copy}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="process">
+      <div class="process__inner">
+        {page.process.map((stage, index) => (
+          <article>
+            <div class="badge">{stage.step}</div>
+            <div>
+              <h3>{stage.title}</h3>
+              <p>{stage.detail}</p>
+            </div>
+            {index < page.process.length - 1 && <span class="divider" aria-hidden="true"></span>}
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="showcase">
+      <article class="showcase__card dark">
+        <h3>Immersive stats rail</h3>
+        <p>Use glass panels running across the viewport to highlight performance without crowding.</p>
+      </article>
+      <article class="showcase__card light">
+        <h3>Split testimonial</h3>
+        <p>Pair black copy blocks with golden quote glyphs for quick credibility hits.</p>
+      </article>
+      <article class="showcase__card dark">
+        <h3>Media carousel ready</h3>
+        <p>Reserve a 50/50 section for project reels, case study tiles, or embedded walkthroughs.</p>
+      </article>
+    </section>
+
+    <section class="ctaPanel">
+      <div>
+        <h2>Drop this layout into any suburb page.</h2>
+        <p>Swap out imagery, update stats, and keep the brass rails intact for consistency.</p>
+      </div>
+      <a class="btn btn--primary" href="/locations/auckland/auckland">See live pages</a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @import "../../styles/pages.css";
+
+  :root {
+    --midnight: #05060a;
+    --onyx: #11131d;
+    --brass: #d6b370;
+    --porcelain: #f6f2ea;
+  }
+
+  .newLayout { background: var(--midnight); color: #fefefe; min-height: 100vh; font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .newLayout section { width: min(1200px, 92%); margin: 0 auto; }
+
+  .splash { position: relative; height: 90vh; display: grid; place-items: center; width: 100%; margin-bottom: 4rem; }
+  .splash__image { position:absolute; inset:0; background-size:cover; background-position:center; filter: grayscale(.2); }
+  .splash__overlay { position:absolute; inset:0; background:linear-gradient(120deg, rgba(5,6,10,.92), rgba(5,6,10,.35)); }
+  .splash__content { position:relative; z-index:2; width:min(1200px,92%); display:grid; gap:1rem; }
+  .brandMark { width:120px; filter: drop-shadow(0 10px 30px rgba(0,0,0,.5)); }
+  .kicker { letter-spacing:.35em; text-transform:uppercase; color:rgba(255,255,255,.7); margin:0; }
+  .splash h1 { font-size: clamp(2.8rem, 6vw, 4.6rem); margin:0; letter-spacing:-0.02em; }
+  .lead { font-size:1.2rem; color:rgba(255,255,255,.85); max-width:60ch; }
+  .ctaRail { display:flex; flex-wrap:wrap; gap:1rem; margin-top:.5rem; }
+  .btn { border-radius:999px; padding:.95rem 1.8rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+  .btn--primary { background:var(--brass); color:#120b03; }
+  .btn--ghost { border:1px solid rgba(255,255,255,.4); color:#fff; }
+  .statsRail { display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:1.5rem; }
+  .statsRail article { border:1px solid rgba(255,255,255,.2); padding:1rem 1.5rem; backdrop-filter: blur(20px); background:rgba(17,19,29,.6); min-width:160px; }
+  .statsRail strong { font-size:1.6rem; display:block; }
+  .statsRail span { color:rgba(255,255,255,.7); }
+
+  .pillars { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-bottom:3rem; }
+  .pillars article { border:1px solid rgba(255,255,255,.08); padding:1.5rem; background:rgba(17,19,29,.9); min-height:220px; }
+  .pillars h2 { margin:0 0 .8rem; color:var(--brass); }
+
+  .process { margin:3rem auto; }
+  .process__inner { border-top:1px solid rgba(255,255,255,.2); border-bottom:1px solid rgba(255,255,255,.2); padding:2rem 0; display:flex; flex-wrap:wrap; gap:2rem; justify-content:space-between; }
+  .process article { position:relative; flex:1 1 220px; display:flex; align-items:flex-start; gap:1rem; }
+  .badge { width:48px; height:48px; border-radius:12px; background:var(--brass); color:#0b0d12; font-weight:700; display:grid; place-items:center; }
+  .divider { position:absolute; right:-1rem; top:50%; width:2rem; height:1px; background:rgba(255,255,255,.4); }
+
+  .showcase { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin:3rem auto; }
+  .showcase__card { padding:1.5rem; min-height:180px; border:1px solid rgba(255,255,255,.15); }
+  .showcase__card.dark { background:#0e111b; }
+  .showcase__card.light { background:#f8f4ea; color:#08090d; }
+
+  .ctaPanel { margin:4rem auto 5rem; padding:2rem; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:space-between; }
+  .ctaPanel h2 { margin:0 0 .3rem; }
+
+  @media (max-width:720px) {
+    .splash { height:auto; padding:4rem 0; }
+    .statsRail { flex-direction:column; }
+    .process__inner { flex-direction:column; }
+    .process article { flex:1 1 auto; }
+    .ctaPanel { flex-direction:column; align-items:flex-start; }
+  }
+</style>
