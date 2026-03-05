@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const page = {
+  title: "Layout Scroll",
+  description: "Scroll-snapping panels with full-height sections.",
+  panels: [
+    { title: "Panel 1", text: "Intro statement with CTA." },
+    { title: "Panel 2", text: "Service grid or imagery." },
+    { title: "Panel 3", text: "Quote or testimonial area." },
+    { title: "Panel 4", text: "Contact CTA anchored bottom." },
+  ],
+};
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <main class="scrollLayout" id="scrollLayout">
+    {page.panels.map((panel, index) => (
+      <section class={`panel panel-${index+1}`}>
+        <div>
+          <h1>{panel.title}</h1>
+          <p>{panel.text}</p>
+          {index === 0 && <a class="btn" href="/contact#form">Engage</a>}
+          {index === page.panels.length - 1 && <a class="btn" href="/locations/auckland/new-lynn">See example</a>}
+        </div>
+      </section>
+    ))}
+  </main>
+</BaseLayout>
+
+<style>
+  .scrollLayout { height:100vh; overflow-y:scroll; scroll-snap-type:y mandatory; font-family:"Space Grotesk",sans-serif; }
+  .panel { height:100vh; scroll-snap-align:start; display:grid; place-items:center; text-align:center; padding:2rem; }
+  .panel div { max-width:460px; }
+  .panel-1 { background:#05060a; color:#fefefe; }
+  .panel-2 { background:#f5f2eb; color:#0b0c10; }
+  .panel-3 { background:#11131d; color:#f3f3f3; }
+  .panel-4 { background:#0b0c10; color:#ffe5ba; }
+  .btn { margin-top:1rem; padding:.9rem 1.6rem; border-radius:999px; border:1px solid currentColor; color:inherit; text-decoration:none; display:inline-flex; justify-content:center; }
+</style>

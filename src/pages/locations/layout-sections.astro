@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const sections = [
+  { heading: "Statement", body: "Single column statement with underline accent." },
+  { heading: "Grid", body: "Four-card capability grid with icons." },
+  { heading: "Timeline", body: "Horizontal timeline for phased delivery." },
+  { heading: "Footer CTA", body: "Centered CTA with supporting text." },
+];
+---
+
+<BaseLayout title="Layout Sections" description="Stacked clean sections"> 
+  <main class="sectionsLayout">
+    <section class="statement">
+      <h1>Minimal sections</h1>
+      <p>Use this when you want a calm, editorial feel with lots of whitespace.</p>
+    </section>
+
+    <section class="grid">
+      {sections.slice(0,2).map((item) => (
+        <article>
+          <h2>{item.heading}</h2>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="timeline">
+      {sections.slice(2,3).map((item) => (
+        <article>
+          <h2>{item.heading}</h2>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>Adopt this structure?</h2>
+        <p>Swap typography and spacing to match your brand.</p>
+        <a class="btn" href="/contact#form">Start</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .sectionsLayout { background:#faf8f2; color:#0c0d11; font-family:"Helvetica Neue", Arial, sans-serif; }
+  .statement { padding:4rem 2rem; border-bottom:1px solid rgba(0,0,0,.1); text-align:center; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; padding:3rem 2rem; }
+  .grid article { border:1px solid rgba(0,0,0,.08); padding:1.5rem; background:#fff; }
+  .timeline { padding:2rem; border-top:1px solid rgba(0,0,0,.1); border-bottom:1px solid rgba(0,0,0,.1); }
+  .cta { padding:3rem 2rem; text-align:center; }
+  .btn { margin-top:1rem; padding:.8rem 1.4rem; background:#0c0d11; color:#fff; text-decoration:none; border-radius:999px; }
+</style>

@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const page = {
+  title: "Layout Contrast",
+  description: "High-contrast split hero with anchored sidebar.",
+  heroImage: "/images/locations/new-lynn-hero.jpg",
+  headline: "Structured power delivery",
+  copy: "This concept uses a dark left column for copy and a light right column for project cards, ideal for long-form storytelling.",
+  sidebar: [
+    { label: "Model", value: "Contrast" },
+    { label: "Use", value: "Content-heavy pages" },
+    { label: "CTA", value: "Single primary" },
+  ],
+  cards: [
+    { title: "Hero", text: "Left column text pinned with CTA; right column image stack." },
+    { title: "Body", text: "Alternating dark/light stripes for sections." },
+    { title: "Footer", text: "Simple CTA band with edge-to-edge rule." },
+  ],
+};
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <main class="contrastLayout">
+    <section class="splitHero">
+      <div class="splitHero__copy">
+        <img src="/images/logo/g16.png" alt="Tri Star" class="mark" />
+        <h1>{page.headline}</h1>
+        <p>{page.copy}</p>
+        <a class="btn" href="/contact#form">Discuss layout</a>
+      </div>
+      <div class="splitHero__image" style={`background-image:url(${page.heroImage})`}></div>
+      <aside class="splitHero__sidebar">
+        <ul>
+          {page.sidebar.map((item) => (
+            <li>
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </section>
+
+    <section class="cardRow">
+      {page.cards.map((card) => (
+        <article>
+          <h2>{card.title}</h2>
+          <p>{card.text}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="ctaBar">
+      <div>
+        <h3>Ready to adapt Contrast?</h3>
+        <p>Swap imagery and copy to test variants quickly.</p>
+      </div>
+      <a class="btn" href="/locations/new-layout">View reference</a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .contrastLayout { font-family: "Inter", system-ui; background:#05060a; color:#f7f4ec; min-height:100vh; }
+  .splitHero { display:grid; grid-template-columns:2fr 2fr 1fr; min-height:70vh; }
+  .splitHero__copy { padding:3rem; background:#05060a; display:flex; flex-direction:column; gap:1.5rem; }
+  .splitHero__image { background-size:cover; background-position:center; }
+  .splitHero__sidebar { background:#0f111c; padding:2rem; }
+  .splitHero__sidebar ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:1rem; }
+  .splitHero__sidebar span { color:rgba(255,255,255,.6); }
+  .btn { padding:.85rem 1.4rem; border-radius:999px; background:#d6b370; color:#120c05; text-decoration:none; font-weight:700; }
+  .cardRow { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; padding:3rem; background:#f7f4ec; color:#05060a; }
+  .cardRow article { border:1px solid rgba(5,6,10,.1); padding:1.5rem; min-height:160px; }
+  .ctaBar { padding:2rem 3rem; background:#0f111c; display:flex; justify-content:space-between; align-items:center; }
+  @media (max-width:900px) { .splitHero { grid-template-columns:1fr; } .splitHero__sidebar { order:3; } }
+</style>

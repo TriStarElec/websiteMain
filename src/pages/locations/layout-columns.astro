@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const columns = [
+  { title: "Column A", text: "Sticky column with CTA and quick links." },
+  { title: "Column B", text: "Scrollable content for case studies." },
+  { title: "Column C", text: "Media column with image placeholders." },
+];
+---
+
+<BaseLayout title="Layout Columns" description="Three-column responsive layout">
+  <main class="columnsLayout">
+    {columns.map((col, index) => (
+      <section class={`col col-${index+1}`}>
+        <div>
+          <h2>{col.title}</h2>
+          <p>{col.text}</p>
+          {index === 0 && <a class="btn" href="/services">Capabilities</a>}
+          {index === 1 && <ul>
+            <li>Project snapshot 01</li>
+            <li>Project snapshot 02</li>
+            <li>Project snapshot 03</li>
+          </ul>}
+          {index === 2 && <div class="mediaPlaceholder"></div>}
+        </div>
+      </section>
+    ))}
+  </main>
+</BaseLayout>
+
+<style>
+  .columnsLayout { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); min-height:100vh; font-family:"Inter",sans-serif; }
+  .col { padding:2rem; border-right:1px solid rgba(0,0,0,.08); }
+  .col:last-child { border-right:none; }
+  .col-1 { background:#0c0d12; color:#fff; position:sticky; top:0; height:100vh; }
+  .col-2 { background:#f3f0e8; }
+  .col-3 { background:#fff; }
+  .btn { display:inline-block; margin-top:1rem; padding:.8rem 1.4rem; background:#d7b372; color:#120c05; text-decoration:none; border-radius:999px; }
+  .mediaPlaceholder { width:100%; height:240px; background:linear-gradient(135deg,#1a1c27,#2d3141); }
+  @media (max-width:900px) { .col { height:auto; position:static; border-right:none; border-bottom:1px solid rgba(0,0,0,.08); } }
+</style>
