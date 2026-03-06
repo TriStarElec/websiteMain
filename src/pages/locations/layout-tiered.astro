@@ -1,31 +1,31 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const page = {
-  title: "Layout Tiered",
-  description: "Tiered sections stepping downward with angled dividers.",
-  tiers: [
-    { title: "Hero tier", text: "Angled background slice with offset CTA." },
-    { title: "Content tier", text: "Two-column text + media blocks." },
-    { title: "CTA tier", text: "Full-width gradient with centered button." },
-  ],
-};
+const suburb = Astro.props?.suburb ?? "Sample Suburb";
+const slug = Astro.props?.slug ?? "sample-suburb";
+
+const tiers = [
+  { title: "Hero tier", text: `State clearly that you service ${suburb} with fixed-scope quoting.` },
+  { title: "Content tier", text: "Use alternating blocks for services, FAQ, and coverage list." },
+  { title: "CTA tier", text: "Finish with a short contact form prompt + phone number." },
+];
 ---
 
-<BaseLayout title={page.title} description={page.description}>
+<BaseLayout title={`Electrician ${suburb} — Tiered Concept`} description="Tiered sections stepping downward with angled dividers">
   <main class="tieredLayout">
     <section class="tier tier--hero">
       <div class="tier__inner">
         <img src="/images/logo/g16.png" alt="Tri Star" />
-        <h1>Tiered presentation</h1>
-        <p>Diagonal section breaks add momentum and keep eyes moving down the page.</p>
-        <a class="btn" href="/services">Explore services</a>
+        <p class="kicker">Electrician {suburb}</p>
+        <h1>Angles for attention</h1>
+        <p>Diagonal section breaks add momentum and keep {suburb} visitors scrolling.</p>
+        <a class="btn" href={`/contact?suburb=${slug}`}>Request {suburb} call-out</a>
       </div>
     </section>
 
     <section class="tier tier--content">
       <div class="tier__inner">
-        {page.tiers.map((tier) => (
+        {tiers.map((tier) => (
           <article>
             <h2>{tier.title}</h2>
             <p>{tier.text}</p>
@@ -36,9 +36,9 @@ const page = {
 
     <section class="tier tier--cta">
       <div class="tier__inner">
-        <h2>Need this structure?</h2>
-        <p>Combine angled backgrounds with alternating gradients for any suburb page.</p>
-        <a class="btn" href="/contact#form">Start conversation</a>
+        <h2>Need an electrician in {suburb}?</h2>
+        <p>Pair this CTA band with a short form or phone link.</p>
+        <a class="btn" href={`/locations/auckland/${slug}`}>View suburb page</a>
       </div>
     </section>
   </main>
@@ -49,9 +49,10 @@ const page = {
   .tier { position:relative; padding:4rem 0; }
   .tier::after { content:""; position:absolute; left:0; right:0; top:0; height:50px; transform:skewY(-3deg); background:inherit; transform-origin:top left; }
   .tier__inner { width:min(1100px,92%); margin:0 auto; }
-  .tier--hero { background:#05060a; color:#f8f7f1; }
-  .tier--content { background:#f0ede5; }
+  .tier--hero { background:#05060a; color:#f8f7f1; text-align:center; }
+  .tier--content { background:#f0ede5; display:flex; gap:1rem; flex-wrap:wrap; }
+  .tier--content article { flex:1 1 220px; border:1px solid rgba(0,0,0,.08); padding:1.4rem; background:#fff; }
   .tier--cta { background:linear-gradient(120deg,#05060a,#1f2435); color:#fff; text-align:center; }
-  .tier--content article { padding:1.5rem; border:1px solid rgba(5,6,10,.1); margin-bottom:1rem; background:#fff; }
+  .kicker { letter-spacing:.4em; text-transform:uppercase; color:rgba(255,255,255,.6); }
   .btn { padding:.9rem 1.5rem; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; font-weight:700; background:#d5b26c; color:#0a0b0f; }
 </style>

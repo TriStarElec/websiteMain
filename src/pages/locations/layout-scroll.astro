@@ -1,27 +1,26 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const page = {
-  title: "Layout Scroll",
-  description: "Scroll-snapping panels with full-height sections.",
-  panels: [
-    { title: "Panel 1", text: "Intro statement with CTA." },
-    { title: "Panel 2", text: "Service grid or imagery." },
-    { title: "Panel 3", text: "Quote or testimonial area." },
-    { title: "Panel 4", text: "Contact CTA anchored bottom." },
-  ],
-};
+const suburb = Astro.props?.suburb ?? "Sample Suburb";
+const slug = Astro.props?.slug ?? "sample-suburb";
+
+const panels = [
+  { title: `Electrician ${suburb}`, text: `Lead panel with bold claim + CTA for ${suburb}.` },
+  { title: "Services", text: "List top three services relevant to the suburb." },
+  { title: "Proof", text: "Placeholder for future reviews/photos." },
+  { title: "CTA", text: "Final contact prompt with phone + form." },
+];
 ---
 
-<BaseLayout title={page.title} description={page.description}>
+<BaseLayout title={`Electrician ${suburb} — Scroll Concept`} description="Scroll-snapping panels with full-height sections">
   <main class="scrollLayout" id="scrollLayout">
-    {page.panels.map((panel, index) => (
+    {panels.map((panel, index) => (
       <section class={`panel panel-${index+1}`}>
         <div>
           <h1>{panel.title}</h1>
           <p>{panel.text}</p>
-          {index === 0 && <a class="btn" href="/contact#form">Engage</a>}
-          {index === page.panels.length - 1 && <a class="btn" href="/locations/auckland/new-lynn">See example</a>}
+          {index === 0 && <a class="btn" href={`/contact?suburb=${slug}`}>Book now</a>}
+          {index === panels.length - 1 && <a class="btn" href={`/locations/auckland/${slug}`}>View suburb page</a>}
         </div>
       </section>
     ))}

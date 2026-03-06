@@ -1,21 +1,24 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const suburb = Astro.props?.suburb ?? "Sample Suburb";
+const slug = Astro.props?.slug ?? "sample-suburb";
+
 const page = {
-  title: "Layout Contrast",
-  description: "High-contrast split hero with anchored sidebar.",
+  title: `Electrician ${suburb} — Contrast Concept`,
+  description: "High-contrast split hero with anchored sidebar tailored to suburb landing pages.",
   heroImage: "/images/locations/new-lynn-hero.jpg",
-  headline: "Structured power delivery",
-  copy: "This concept uses a dark left column for copy and a light right column for project cards, ideal for long-form storytelling.",
+  heroCopy:
+    `When homeowners in ${suburb} search for a trustworthy electrician, lead with a bold, text-first hero on the left and supporting project imagery on the right.`,
   sidebar: [
-    { label: "Model", value: "Contrast" },
-    { label: "Use", value: "Content-heavy pages" },
-    { label: "CTA", value: "Single primary" },
+    { label: "Focus", value: `${suburb} enquiries` },
+    { label: "CTA", value: "Book inspection" },
+    { label: "Nav", value: "Services • FAQ • Map" },
   ],
   cards: [
-    { title: "Hero", text: "Left column text pinned with CTA; right column image stack." },
-    { title: "Body", text: "Alternating dark/light stripes for sections." },
-    { title: "Footer", text: "Simple CTA band with edge-to-edge rule." },
+    { title: "Guarantee", text: `Highlight compliance + tidy workmanship for every ${suburb} job.` },
+    { title: "Services", text: "Link to heat pumps, rewires, EV chargers, and emergency call-outs." },
+    { title: "Coverage", text: `List nearby suburbs to reinforce your ${suburb} service area.` },
   ],
 };
 ---
@@ -25,9 +28,13 @@ const page = {
     <section class="splitHero">
       <div class="splitHero__copy">
         <img src="/images/logo/g16.png" alt="Tri Star" class="mark" />
-        <h1>{page.headline}</h1>
-        <p>{page.copy}</p>
-        <a class="btn" href="/contact#form">Discuss layout</a>
+        <p class="kicker">Electrician {suburb}</p>
+        <h1>Structured power delivery</h1>
+        <p>{page.heroCopy}</p>
+        <div class="ctaRail">
+          <a class="btn" href={`/contact?suburb=${slug}`}>Book an inspection</a>
+          <a class="btn btn--ghost" href={`/locations/auckland/${slug}`}>See suburb page</a>
+        </div>
       </div>
       <div class="splitHero__image" style={`background-image:url(${page.heroImage})`}></div>
       <aside class="splitHero__sidebar">
@@ -53,10 +60,10 @@ const page = {
 
     <section class="ctaBar">
       <div>
-        <h3>Ready to adapt Contrast?</h3>
-        <p>Swap imagery and copy to test variants quickly.</p>
+        <h3>Need suburb-specific messaging?</h3>
+        <p>Swap copy + imagery and keep the split layout consistent across every location.</p>
       </div>
-      <a class="btn" href="/locations/new-layout">View reference</a>
+      <a class="btn" href={`/locations/auckland/${slug}`}>Preview {suburb}</a>
     </section>
   </main>
 </BaseLayout>
@@ -64,14 +71,17 @@ const page = {
 <style>
   .contrastLayout { font-family: "Inter", system-ui; background:#05060a; color:#f7f4ec; min-height:100vh; }
   .splitHero { display:grid; grid-template-columns:2fr 2fr 1fr; min-height:70vh; }
-  .splitHero__copy { padding:3rem; background:#05060a; display:flex; flex-direction:column; gap:1.5rem; }
+  .splitHero__copy { padding:3rem; background:#05060a; display:flex; flex-direction:column; gap:1.2rem; }
   .splitHero__image { background-size:cover; background-position:center; }
   .splitHero__sidebar { background:#0f111c; padding:2rem; }
   .splitHero__sidebar ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:1rem; }
   .splitHero__sidebar span { color:rgba(255,255,255,.6); }
-  .btn { padding:.85rem 1.4rem; border-radius:999px; background:#d6b370; color:#120c05; text-decoration:none; font-weight:700; }
+  .kicker { letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.6); margin:0; }
+  .ctaRail { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn { padding:.85rem 1.4rem; border-radius:999px; border:1px solid transparent; background:#d6b370; color:#120c05; text-decoration:none; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+  .btn--ghost { background:transparent; border-color:rgba(255,255,255,.4); color:#fff; }
   .cardRow { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; padding:3rem; background:#f7f4ec; color:#05060a; }
   .cardRow article { border:1px solid rgba(5,6,10,.1); padding:1.5rem; min-height:160px; }
-  .ctaBar { padding:2rem 3rem; background:#0f111c; display:flex; justify-content:space-between; align-items:center; }
+  .ctaBar { padding:2rem 3rem; background:#0f111c; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
   @media (max-width:900px) { .splitHero { grid-template-columns:1fr; } .splitHero__sidebar { order:3; } }
 </style>

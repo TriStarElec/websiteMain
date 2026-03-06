@@ -1,14 +1,17 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const suburb = Astro.props?.suburb ?? "Sample Suburb";
+const slug = Astro.props?.slug ?? "sample-suburb";
+
 const page = {
-  title: "Layout Gallery",
-  description: "Masonry grid with floating nav and sticky CTA.",
+  title: `Electrician ${suburb} — Gallery Concept`,
+  description: "Masonry grid layout for suburb-focused landing pages heavy on imagery.",
   gallery: [
-    { heading: "Hero Mosaic", body: "Three-column mosaic with alternating image + copy blocks." },
-    { heading: "Quote Rail", body: "Center-aligned pull quote with oversized quotation marks." },
-    { heading: "Spec List", body: "Grid of checklists for capability statements." },
-    { heading: "Media Strip", body: "Horizontal scroller for before/after frames." },
+    { heading: "Projects in suburb", body: `Showcase three recent ${suburb} jobs with before/after tiles.` },
+    { heading: "Testimonials", body: "Swap in genuine reviews once collected." },
+    { heading: "Service highlights", body: "Use denser cards to explain EV chargers, rewires, inspections." },
+    { heading: "Contact", body: `Reiterate response time for ${suburb} and nearby areas.` },
   ],
 };
 ---
@@ -18,19 +21,20 @@ const page = {
     <header class="floatingNav">
       <img src="/images/logo/g16.png" alt="Tri Star" />
       <nav>
-        <a href="#mosaic">Mosaic</a>
-        <a href="#quote">Quote</a>
-        <a href="#spec">Specs</a>
-        <a href="#media">Media</a>
+        <a href="#mosaic">Projects</a>
+        <a href="#quote">Reviews</a>
+        <a href="#spec">Services</a>
+        <a href="#media">Coverage</a>
       </nav>
-      <a class="btn" href="/contact#form">Start brief</a>
+      <a class="btn" href={`/contact?suburb=${slug}`}>Book ${suburb}</a>
     </header>
 
     <section class="mosaic" id="mosaic">
       <div class="mosaic__item large"></div>
       <div class="mosaic__item">
-        <h1>Gallery concept</h1>
-        <p>Use tall columns with alternating imagery to create magazine-like rhythm.</p>
+        <p class="kicker">Electrician {suburb}</p>
+        <h1>Project gallery</h1>
+        <p>Drop images from switchboard upgrades, lighting installs, and EV chargers completed in {suburb}.</p>
       </div>
       <div class="mosaic__item"></div>
       <div class="mosaic__item wide"></div>
@@ -48,27 +52,27 @@ const page = {
     <section class="stackedQuote" id="quote">
       <p class="glyph">“</p>
       <div>
-        <p>Choose this layout when you need visual energy and lots of reference imagery.</p>
-        <span>— Layout Lab</span>
+        <p>Replace this placeholder with a real {suburb} review once available.</p>
+        <span>— Future client, {suburb}</span>
       </div>
       <p class="glyph">”</p>
     </section>
 
     <section class="specList" id="spec">
       <article>
-        <h3>Structure</h3>
+        <h3>Popular in {suburb}</h3>
         <ul>
-          <li>Floating nav</li>
-          <li>Masonry hero</li>
-          <li>Card grid</li>
+          <li>Switchboards + rewires</li>
+          <li>EV charger installs</li>
+          <li>Lighting + heat pumps</li>
         </ul>
       </article>
       <article>
-        <h3>Best for</h3>
+        <h3>Nearby coverage</h3>
         <ul>
-          <li>Portfolio shots</li>
-          <li>Case study digests</li>
-          <li>Photography-heavy brands</li>
+          <li><a href={`/locations/auckland/${slug}`}>Primary suburb page</a></li>
+          <li><a href="/locations/auckland/remuera">Remuera</a></li>
+          <li><a href="/locations/auckland/avondale">Avondale</a></li>
         </ul>
       </article>
     </section>
@@ -83,7 +87,7 @@ const page = {
 </BaseLayout>
 
 <style>
-  .galleryLayout { background:#0c0d11; color:#f5f5f0; font-family:"Sora", "Inter", sans-serif; }
+  .galleryLayout { background:#0c0d11; color:#f5f5f0; font-family:"Sora","Inter",sans-serif; }
   .floatingNav { position:sticky; top:0; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; background:rgba(12,13,17,.9); backdrop-filter:blur(12px); z-index:10; }
   .floatingNav img { width:80px; }
   .floatingNav nav { display:flex; gap:1rem; text-transform:uppercase; letter-spacing:.2em; font-size:.85rem; }
@@ -93,6 +97,7 @@ const page = {
   .mosaic__item { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); }
   .mosaic__item.large { grid-row:span 2; background:linear-gradient(135deg,#0f111b,#2a2e3d); }
   .mosaic__item.wide { grid-column:span 2; }
+  .kicker { text-transform:uppercase; letter-spacing:.3em; color:rgba(255,255,255,.6); }
 
   .galleryCards { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; padding:2rem; }
   .galleryCards article { background:#1a1c27; padding:1.4rem; border:1px solid rgba(255,255,255,.08); }
