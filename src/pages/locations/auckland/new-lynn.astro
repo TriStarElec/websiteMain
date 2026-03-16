@@ -3,6 +3,8 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 const suburb = "New Lynn";
 const slug = "new-lynn";
+const mapQuery = `${suburb}, Auckland, New Zealand`;
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`;
 
 const serviceOrder = Astro.props?.serviceOrder
   ?? (Astro.props?.industrialFirst ? ["industrial", "commercial", "residential"] : ["residential", "commercial", "industrial"]);
@@ -17,6 +19,7 @@ const services = {
       "EV charger installs + load control",
       "Urgent fault finding + repairs",
     ],
+    image: "/images/locations/new-lynn/gallery-1.png",
   },
   commercial: {
     title: "Commercial electrician",
@@ -27,6 +30,7 @@ const services = {
       "Maintenance plans for offices",
       "Emergency response windows",
     ],
+    image: "/images/locations/new-lynn/gallery-2.png",
   },
   industrial: {
     title: "Industrial electrician",
@@ -37,26 +41,29 @@ const services = {
       "Three-phase upgrades",
       "Compliance + RAMS packs",
     ],
+    image: "/images/locations/new-lynn/gallery-3.png",
   },
 };
 
 const highlights = [
   { title: "Fixed-scope quotes", body: "No surprises. We confirm scope before stepping on site." },
-  { title: "Form-first contact", body: "All enquiries run through the form so we can call back prepared." },
+  { title: "Form-first contact", body: "Send everything through the form so we can call back prepared." },
   { title: "Nearby coverage", body: "Kelston • Blockhouse Bay • Titirangi • Glen Eden" },
 ];
 
-/**
- * Placeholder for Supabase integration.
- * When ready, swap this with a real query, e.g.:
- * const { data } = await supabase.from('jobs').select('*').eq('suburb', suburb).limit(3);
- */
+const gallery = [
+  { src: "/images/locations/new-lynn/gallery-1.png", caption: "Switchboard tidy-up", detail: "Load-balanced board + relabel" },
+  { src: "/images/locations/new-lynn/gallery-2.png", caption: "Retail lighting", detail: "After-hours LynnMall upgrade" },
+  { src: "/images/locations/new-lynn/gallery-3.png", caption: "Workshop feed", detail: "Portage Rd machine install" },
+];
+
 const recentJobs = (Astro.props?.jobs ?? []).slice(0, 3);
 ---
 
 <BaseLayout title={`Electrician ${suburb} — Tri Star Electrical`} description="Premium suburb landing page structure">
   <main class="suburbLayout">
     <section class="hero">
+      <div class="hero__image" aria-hidden="true"></div>
       <div class="hero__content">
         <p class="kicker">Electrician {suburb}</p>
         <h1>Electrical work done properly in {suburb}</h1>
@@ -68,8 +75,8 @@ const recentJobs = (Astro.props?.jobs ?? []).slice(0, 3);
       </div>
       <div class="hero__map">
         <iframe
-          title="Map of New Lynn"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24885.833348771032!2d174.6606!3d-36.9084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d48ca42f6c9a7%3A0x500ef6143a2e580!2sNew%20Lynn%2C%20Auckland%200600!5e0!3m2!1sen!2snz!4v1730226400000"
+          title={`Map of ${suburb}`}
+          src={mapSrc}
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
@@ -85,20 +92,33 @@ const recentJobs = (Astro.props?.jobs ?? []).slice(0, 3);
       ))}
     </section>
 
+    <section class="galleryStrip">
+      {gallery.map((shot) => (
+        <figure>
+          <img src={shot.src} alt={shot.caption} loading="lazy" />
+          <figcaption>
+            <strong>{shot.caption}</strong>
+            <span>{shot.detail}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </section>
+
     {serviceOrder.map((key) => (
       <section class="serviceSection" id={key}>
         <div class="serviceSection__copy">
-          <h2>{services[key].title}</h2>
+          <p class="kicker">{services[key].title}</p>
+          <h2>For {suburb} {services[key].title.toLowerCase()}</h2>
           <p>{services[key].intro}</p>
           <ul>
             {services[key].bullets.map((item) => (
               <li>{item}</li>
             ))}
           </ul>
-        </div>
-        <div class="serviceSection__card">
-          <p>Use this area for job photos, stats, or a quote snippet related to {services[key].title.toLowerCase()}.</p>
           <a class="btn" href={`/contact?suburb=${slug}&service=${key}`}>Book {services[key].title.toLowerCase()}</a>
+        </div>
+        <div class="serviceSection__media">
+          <img src={services[key].image} alt={services[key].title} loading="lazy" />
         </div>
       </section>
     ))}
@@ -137,21 +157,30 @@ const recentJobs = (Astro.props?.jobs ?? []).slice(0, 3);
 </BaseLayout>
 
 <style>
-  .suburbLayout { background:#05060a; color:#f7f4ec; font-family:"Inter",sans-serif; }
-  .hero { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2rem; padding:3rem 2rem; align-items:center; }
+  .suburbLayout { background:#04050c; color:#f7f4ec; font-family:"Inter",sans-serif; }
+  .kicker { letter-spacing:.35em; text-transform:uppercase; color:rgba(255,255,255,.6); font-size:.8rem; }
+  .hero { position:relative; display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2rem; padding:3rem 2rem; align-items:center; overflow:hidden; }
+  .hero__image { position:absolute; inset:0; background-image:url('/images/locations/new-lynn-hero.jpg'); background-size:cover; background-position:center; opacity:.35; filter:saturate(1.2); }
+  .hero__content, .hero__map { position:relative; z-index:1; }
   .hero__content { display:flex; flex-direction:column; gap:1.2rem; }
-  .kicker { letter-spacing:.35em; text-transform:uppercase; color:rgba(255,255,255,.6); }
   .ctaRow { display:flex; gap:1rem; flex-wrap:wrap; }
   .btn { padding:.9rem 1.6rem; border-radius:999px; text-decoration:none; font-weight:700; letter-spacing:.08em; text-transform:uppercase; border:1px solid transparent; background:#d6b370; color:#120c05; }
   .link { color:#fff; text-decoration:underline; }
-  .hero__map iframe { width:100%; aspect-ratio:4/3; border:1px solid rgba(255,255,255,.2); border-radius:18px; }
+  .hero__map iframe { width:100%; aspect-ratio:4/3; border:1px solid rgba(255,255,255,.2); border-radius:18px; background:#000; }
 
   .highlights { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; padding:2rem; }
-  .highlights article { border:1px solid rgba(255,255,255,.15); padding:1.4rem; backdrop-filter:blur(10px); background:rgba(15,17,23,.6); }
+  .highlights article { border:1px solid rgba(255,255,255,.2); padding:1.4rem; backdrop-filter:blur(10px); background:rgba(15,17,23,.6); }
 
-  .serviceSection { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; padding:2.5rem 2rem; border-top:1px solid rgba(255,255,255,.08); }
+  .galleryStrip { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; padding:0 2rem 2rem; }
+  .galleryStrip figure { margin:0; border:1px solid rgba(255,255,255,.15); background:#0c0d15; border-radius:18px; overflow:hidden; }
+  .galleryStrip img { width:100%; height:180px; object-fit:cover; display:block; }
+  .galleryStrip figcaption { padding:1rem; display:flex; flex-direction:column; gap:.2rem; }
+  .galleryStrip strong { font-size:1.05rem; }
+  .galleryStrip span { color:rgba(255,255,255,.7); font-size:.9rem; }
+
+  .serviceSection { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem; padding:2.5rem 2rem; border-top:1px solid rgba(255,255,255,.08); align-items:center; }
   .serviceSection__copy ul { margin:1rem 0 0; padding-left:1.2rem; }
-  .serviceSection__card { border:1px solid rgba(255,255,255,.15); padding:1.5rem; background:rgba(15,17,23,.7); }
+  .serviceSection__media img { width:100%; border-radius:24px; border:1px solid rgba(255,255,255,.2); box-shadow:0 20px 60px rgba(0,0,0,.45); }
 
   .faq { padding:3rem 2rem; }
   .faq__list { display:grid; gap:1rem; }
@@ -160,4 +189,10 @@ const recentJobs = (Astro.props?.jobs ?? []).slice(0, 3);
   .ctaPanel { padding:2rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; border-top:1px solid rgba(255,255,255,.2); border-bottom:1px solid rgba(255,255,255,.2); }
 
   .is-hidden { display:none !important; }
+
+  @media (max-width:740px) {
+    .galleryStrip img { height:140px; }
+    .serviceSection { padding:2rem 1.5rem; }
+    .ctaPanel { flex-direction:column; text-align:center; }
+  }
 </style>
